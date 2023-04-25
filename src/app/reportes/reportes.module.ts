@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { GraficoPieComponent } from './grafico-pie/grafico-pie.component';
 import { GraficoLineasComponent } from './grafico-lineas/grafico-lineas.component';
+import { GraficoTreeComponent } from './grafico-tree/grafico-tree.component';
 
 
 
@@ -15,7 +16,8 @@ import { GraficoLineasComponent } from './grafico-lineas/grafico-lineas.componen
     MainComponent,
     GraficoBarrasComponent,
     GraficoPieComponent,
-    GraficoLineasComponent
+    GraficoLineasComponent,
+    GraficoTreeComponent
   ],
   imports: [
     CommonModule,
