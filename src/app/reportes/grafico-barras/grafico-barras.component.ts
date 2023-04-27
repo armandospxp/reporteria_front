@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { single } from './data';
+import { ReportesService } from '../reportes.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-grafico-barras',
@@ -16,17 +18,18 @@ export class GraficoBarrasComponent {
   gradient: boolean = false;
   showLegend: boolean = true;
   showXAxisLabel: boolean = true;
-  yAxisLabel: string = 'Country';
+  yAxisLabel: string = 'Sucursales';
   showYAxisLabel: boolean = true;
-  xAxisLabel: string = 'Population';
+  xAxisLabel: string = 'Cantidad';
 
   colorScheme = "vivid"
   // colorScheme = {
   //   domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   // };
 
-  constructor() {
-    Object.assign(this, { single });
+  constructor(
+    private reporteService:ReportesService
+  ) {
   }
 
   onSelect(data: any): void {
@@ -39,6 +42,13 @@ export class GraficoBarrasComponent {
 
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+  ngOnInit():void{
+    Object.assign(this, {single} );
+    this.reporteService.obtenerCantidadOperaciones().subscribe((resp:any) =>{
+      this.single = resp.data;
+      console.log(this.single);
+    });
   }
 
 }

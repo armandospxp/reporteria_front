@@ -25,6 +25,6 @@ export class GraficoTreeComponent {
   }
 
   labelFormatting(c: { label: any; }) {
-    return `${(c.label)} Population`;
+    return `${(c.label)}`;
   }
 }

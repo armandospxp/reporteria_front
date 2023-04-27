@@ -18,8 +18,8 @@ export class GraficoLineasComponent {
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Year';
-  yAxisLabel: string = 'Population';
+  xAxisLabel: string = 'Mes';
+  yAxisLabel: string = 'Monto Consolidado';
   timeline: boolean = true;
 
   colorScheme = "vivid";

@@ -8,6 +8,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { GraficoPieComponent } from './grafico-pie/grafico-pie.component';
 import { GraficoLineasComponent } from './grafico-lineas/grafico-lineas.component';
 import { GraficoTreeComponent } from './grafico-tree/grafico-tree.component';
+import { ReportesService } from './reportes.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -23,8 +26,10 @@ import { GraficoTreeComponent } from './grafico-tree/grafico-tree.component';
     CommonModule,
     FormsModule,
     BrowserAnimationsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    HttpClientModule 
   ],
-  exports:[MainComponent]
+  exports:[MainComponent],
+  providers: [ReportesService]
 })
 export class ReportesModule { }

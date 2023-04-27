@@ -6,6 +6,7 @@ import { FooterComponent } from 'src/assets/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReportesModule } from './reportes/reportes.module';
+import { ReportesService } from './reportes/reportes.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,6 @@ import { ReportesModule } from './reportes/reportes.module';
     FooterComponent,
     ReportesModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
