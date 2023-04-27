@@ -16,7 +16,7 @@ export class GraficoBarrasComponent {
   showXAxis: boolean = true;
   showYAxis: boolean = true;
   gradient: boolean = false;
-  showLegend: boolean = true;
+  showLegend: boolean = false;
   showXAxisLabel: boolean = true;
   yAxisLabel: string = 'Sucursales';
   showYAxisLabel: boolean = true;
