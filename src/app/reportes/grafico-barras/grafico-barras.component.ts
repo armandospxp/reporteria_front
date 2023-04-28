@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { single } from './data';
 import { ReportesService } from '../reportes.service';
-import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-grafico-barras',
@@ -9,7 +7,7 @@ import { environment } from 'src/environments/environment.development';
   styleUrls: ['./grafico-barras.component.scss']
 })
 export class GraficoBarrasComponent {
-  single!: any[];
+  single!: any;
   view: any[] = [700, 400];
 
   // options
@@ -44,11 +42,10 @@ export class GraficoBarrasComponent {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
   ngOnInit():void{
-    Object.assign(this, {single} );
-    this.reporteService.obtenerCantidadOperaciones().subscribe((resp:any) =>{
-      this.single = resp.data;
-      console.log(this.single);
-    });
+   this.reporteService.obtenerCantidadOperaciones().subscribe((resp:any) =>{
+    this.single = resp;
+    Object.assign(this, this.single);
+  });
   }
 
 }

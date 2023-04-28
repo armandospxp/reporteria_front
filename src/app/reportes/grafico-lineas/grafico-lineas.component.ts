@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { multi } from './data';
+import { ReportesService } from '../reportes.service';
 
 @Component({
   selector: 'app-grafico-lineas',
@@ -7,7 +7,7 @@ import { multi } from './data';
   styleUrls: ['./grafico-lineas.component.scss']
 })
 export class GraficoLineasComponent {
-  multi!: any[];
+  multi!: any;
   view: any[] = [700, 300];
 
   // options
@@ -24,8 +24,8 @@ export class GraficoLineasComponent {
 
   colorScheme = "vivid";
 
-  constructor() {
-    Object.assign(this, { multi });
+  constructor(private reporteService:ReportesService) {
+    //Object.assign(this, { multi });
   }
 
   onSelect(data: any): void {
@@ -39,4 +39,11 @@ export class GraficoLineasComponent {
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
+
+  ngOnInit():void{
+    this.reporteService.obtenerSumaMontoOperaciones().subscribe((resp:any) =>{
+     this.multi = resp;
+     Object.assign(this, this.multi);
+   });
+   }
 }

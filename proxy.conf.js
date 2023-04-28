@@ -19,11 +19,11 @@ const PROXY_CONFIG = [
     "target": "http://127.0.0.1:8000",
     "secure": false,
     "logLevel": "debug",
-    "changeOrigin": true,
-    "pathRewrite": {
-        "^/": ""
-    },
-    "bypass": function(proxyRes, req, res) {}
+    "changeOrigin": false,
+    // "pathRewrite": {
+    //     "^/": ""
+    // },
+    //"bypass": function(proxyRes, req, res) {}
     },
     // {
     //   context: [

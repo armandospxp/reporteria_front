@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { single } from '../grafico-barras/data';
+import { ReportesService } from '../reportes.service';
 
 @Component({
   selector: 'app-grafico-tree',
@@ -7,7 +7,7 @@ import { single } from '../grafico-barras/data';
   styleUrls: ['./grafico-tree.component.scss']
 })
 export class GraficoTreeComponent {
-  single!: any[];
+  single!:any;
   view: any[] = [700, 400];
 
   // options
@@ -16,8 +16,8 @@ export class GraficoTreeComponent {
 
   colorScheme = "vivid";
 
-  constructor() {
-    Object.assign(this, { single });
+  constructor(private reporteService: ReportesService) {
+    //Object.assign(this, { single });
   }
 
   onSelect(event: any) {
@@ -27,4 +27,11 @@ export class GraficoTreeComponent {
   labelFormatting(c: { label: any; }) {
     return `${(c.label)}`;
   }
+
+  ngOnInit():void{
+    this.reporteService.obtenerCantidadOperaciones().subscribe((resp:any) =>{
+      this.single = resp;
+     Object.assign(this, this.single);
+   });
+   }
 }
