@@ -8,13 +8,13 @@ import { ReportesService } from '../reportes.service';
 })
 export class GraficoPieComponent {
   single!: any;
-  view: any[] = [700, 400];
+  view: [number, number] = [700, 400];
 
   // options
   gradient: boolean = true;
   showLegend: boolean = true;
   showLabels: boolean = true;
-  isDoughnut: boolean = false;
+  isDoughnut: boolean = true;
 
   colorScheme = "vivid";
 
