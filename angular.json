@@ -41,7 +41,6 @@
             ],
             "scripts": [
               "src/assets/theme/vendors/js/vendor.bundle.base.js",
-              "src/assets/theme/vendors/chart.js/Chart.min.js",
               "src/assets/theme/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js",
               "src/assets/theme/js/off-canvas.js",
               "src/assets/theme/js/hoverable-collapse.js",
