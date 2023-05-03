@@ -25,5 +25,11 @@ export class ReportesService {
     console.log(url);
     return this.http.get(url);
   }
+  
+  obtenerComparativoSumaMontoOperaciones(){
+    const url = this.base_url + '/comparativo-suma-operaciones/';
+    console.log(url);
+    return this.http.get(url);
+  }
 
 }

@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { ReportesService } from '../reportes.service';
 
 @Component({
-  selector: 'app-grafico-lineas',
-  templateUrl: './grafico-lineas.component.html',
-  styleUrls: ['./grafico-lineas.component.scss']
+  selector: 'app-grafico-comparativo-linea',
+  templateUrl: './grafico-comparativo-linea.component.html',
+  styleUrls: ['./grafico-comparativo-linea.component.scss']
 })
-export class GraficoLineasComponent {
+export class GraficoComparativoLineaComponent {
   multi!: any;
   view: any[] = [700, 300];
 
@@ -42,9 +42,10 @@ export class GraficoLineasComponent {
   }
 
   ngOnInit():void{
-    this.reporteService.obtenerSumaMontoOperaciones().subscribe((resp:any) =>{
+    this.reporteService.obtenerComparativoSumaMontoOperaciones().subscribe((resp:any) =>{
      this.multi = resp;
      Object.assign(this, this.multi);
    });
    }
+
 }

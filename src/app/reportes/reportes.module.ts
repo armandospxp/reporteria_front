@@ -10,6 +10,7 @@ import { GraficoLineasComponent } from './grafico-lineas/grafico-lineas.componen
 import { GraficoTreeComponent } from './grafico-tree/grafico-tree.component';
 import { ReportesService } from './reportes.service';
 import { HttpClientModule } from '@angular/common/http';
+import { GraficoComparativoLineaComponent } from './grafico-comparativo-linea/grafico-comparativo-linea.component';
 
 
 
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     GraficoBarrasComponent,
     GraficoPieComponent,
     GraficoLineasComponent,
-    GraficoTreeComponent
+    GraficoTreeComponent,
+    GraficoComparativoLineaComponent
   ],
   imports: [
     CommonModule,
