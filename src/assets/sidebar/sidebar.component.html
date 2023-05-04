@@ -10,25 +10,17 @@
     <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
       aria-controls="form-elements">
       <i class="menu-icon mdi mdi-card-text-outline"></i>
-      <span class="menu-title">Filtro por Fecha</span>
-      <i class="menu-arrow"></i>
-    </a>
-    <div class="collapse" id="form-elements">
-      <ul class="nav flex-column sub-menu">
-        <li class="nav-item"><a class="nav-link" href="../../pages/forms/basic_elements.html">Basic Elements</a></li>
-      </ul>
-    </div>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
-      aria-controls="form-elements">
-      <i class="menu-icon mdi mdi-card-text-outline"></i>
       <span class="menu-title">Filtro por Sucursal</span>
       <i class="menu-arrow"></i>
     </a>
     <div class="collapse" id="form-elements">
       <ul class="nav flex-column sub-menu">
-        <li class="nav-item"><a class="nav-link" href="../../pages/forms/basic_elements.html">Basic Elements</a></li>
+        <div class="form-check" *ngFor="let suc of sucursales">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            {{ suc.name }}
+          </label>
+        </div>
       </ul>
     </div>
   </li>
