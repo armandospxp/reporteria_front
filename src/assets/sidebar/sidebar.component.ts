@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 export class SidebarComponent {
   
   sucursales!:Sucursales[];
-
+  
   constructor(
     private sidebarService:SidebarService
   ){}
@@ -26,5 +26,9 @@ export class SidebarComponent {
       this.sucursales = resp;
     });
   }
+
+  checkValue(event: any){
+    console.log(event);
+ }
 
 }
