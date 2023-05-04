@@ -24,20 +24,20 @@
     </ul>
     <ul class="navbar-nav ms-auto">
       <li class="nav-item d-none d-lg-block">
-        <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+        <!-- <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
           <span class="input-group-addon input-group-prepend border-right">
             <span class="icon-calendar input-group-text calendar-icon"></span>
           </span>
           <input type="text" class="form-control">
-        </div>
+        </div> -->
+        <app-datepicker></app-datepicker>
       </li>
       <li class="nav-item d-none d-lg-block">
-        <div id="datepicker-popup2" class="input-group date datepicker navbar-date-picker">
-          <span class="input-group-addon input-group-prepend border-right">
+          <!-- <span class="input-group-addon input-group-prepend border-right" (click)="d.toggle()">
             <span class="icon-calendar input-group-text calendar-icon"></span>
           </span>
-          <input type="text" class="form-control">
-        </div>
+          <input type="text" class="form-control" ngbDatepicker #d="ngbDatepicker"> -->
+          <app-datepicker></app-datepicker>
       </li>
       <li class="nav-item">
         <form class="search-form" action="#">
