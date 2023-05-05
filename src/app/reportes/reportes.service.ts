@@ -15,19 +15,19 @@ export class ReportesService {
   ) { }
   
   obtenerCantidadOperaciones(){
-    const url = this.base_url + '/cantidad-operaciones/';
+    const url = this.base_url + '/cantidad-operaciones';
     console.log(url);
     return this.http.get(url);
   }
 
   obtenerSumaMontoOperaciones(){
-    const url = this.base_url + '/suma-operaciones/';
+    const url = this.base_url + '/suma-operaciones';
     console.log(url);
     return this.http.get(url);
   }
   
   obtenerComparativoSumaMontoOperaciones(){
-    const url = this.base_url + '/comparativo-suma-operaciones/';
+    const url = this.base_url + '/comparativo-suma-operaciones';
     console.log(url);
     return this.http.get(url);
   }

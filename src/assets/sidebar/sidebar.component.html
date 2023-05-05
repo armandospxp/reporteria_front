@@ -14,14 +14,27 @@
       <i class="menu-arrow"></i>
     </a>
     <div class="collapse" id="form-elements">
+      <!-- <form [formGroup]="form" (click)="enviarFiltro()"></form>
       <ul class="nav flex-column sub-menu">
         <div class="form-check" *ngFor="let suc of sucursales">
-          <input (change)="checkValue($event)" class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-          <label class="form-check-label" for="flexCheckDefault">
+          <input [formControlName]="i" class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+          <label formArrayName="suc" *ngFor="let order of form.controls['suc'].controls; let i = index"
+            class="form-check-label" for="flexCheckDefault">
             {{ suc.name }}
           </label>
         </div>
       </ul>
+      </form> -->
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <label formArrayName="orders" *ngFor="let order of form.controls.suc.controls; let i = index">
+          <input type="checkbox" [formControlName]="i">
+          {{sucursales[i].name}}
+        </label>
+      
+        <div *ngIf="!form.valid">At least one order must be selected</div>
+        <br>
+        <button [disabled]="!form.valid">submit</button>
+      </form>
     </div>
   </li>
   <li class="nav-item nav-category">Ayuda</li>
@@ -32,3 +45,5 @@
     </a>
   </li>
 </ul>
+<!-- 
+formArrayName="orders" *ngFor="let order of ordersFormArray.controls; let i = index" -->
