@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ReportesService } from '../reportes.service';
 
+
 @Component({
   selector: 'app-grafico-barras',
   templateUrl: './grafico-barras.component.html',
-  styleUrls: ['./grafico-barras.component.scss']
+  styleUrls: ['./grafico-barras.component.scss'],
 })
 export class GraficoBarrasComponent {
   single!: any;
@@ -26,7 +27,7 @@ export class GraficoBarrasComponent {
   // };
 
   constructor(
-    private reporteService:ReportesService
+    private reporteService:ReportesService,
   ) {
   }
 
@@ -43,6 +44,8 @@ export class GraficoBarrasComponent {
   }
   ngOnInit():void{
    this.reporteService.obtenerCantidadOperaciones().subscribe((resp:any) =>{
+    // console.log('aqui', this.sucursalesFiltradas);
+    // console.log(this.sucursalesFiltradas);
     this.single = resp;
     Object.assign(this, this.single);
   });

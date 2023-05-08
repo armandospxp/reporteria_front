@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ReportesService } from '../reportes.service';
 
 @Component({
@@ -24,6 +24,8 @@ export class GraficoLineasComponent {
   timeline: boolean = true;
 
   colorScheme = "vivid";
+
+  @Input() datosFiltrados:any;
 
   constructor(private reporteService:ReportesService) {
     //Object.assign(this, { multi });

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { SidebarService } from './sidebar.service';
 import { Sucursales } from './interfaces/sidebar';
 import { CommonModule } from '@angular/common';
@@ -14,11 +14,18 @@ import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFo
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-  sucursalesFiltradas: any;
+  sucursalesFiltradas!: Sucursales[];
+  @Output()
+  datosFiltrados: EventEmitter<Sucursales[]> = new EventEmitter();
 
 filtrar() {
   this.sucursalesFiltradas = this.sucursales.filter(opcion => opcion.seleccionado);
-  console.log(this.sucursalesFiltradas);
+  //console.log(this.sucursalesFiltradas);
+  this.emitDatosFiltro(this.sucursalesFiltradas)
+}
+
+private emitDatosFiltro(data: Sucursales[]): void {
+  this.datosFiltrados.emit(data);
 }
 
   form:FormGroup;
@@ -37,7 +44,7 @@ filtrar() {
 
   ngOnInit():void{
     this.sidebarService.obtenerSucursales().subscribe((resp:any)=>{
-      console.log(resp);
+      // console.log(resp);
       this.sucursales = resp;
     });
   }

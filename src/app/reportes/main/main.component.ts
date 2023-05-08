@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Sucursales } from 'src/assets/sidebar/interfaces/sidebar';
 
 @Component({
   selector: 'app-main',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
 
+  @Input() datosFilt!:any;
+
+  ngOnInit(){
+  }
 }

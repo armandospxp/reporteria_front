@@ -11,6 +11,7 @@ import { GraficoTreeComponent } from './grafico-tree/grafico-tree.component';
 import { ReportesService } from './reportes.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GraficoComparativoLineaComponent } from './grafico-comparativo-linea/grafico-comparativo-linea.component';
+import { SidebarComponent } from 'src/assets/sidebar/sidebar.component';
 
 
 
@@ -29,9 +30,9 @@ import { GraficoComparativoLineaComponent } from './grafico-comparativo-linea/gr
     FormsModule,
     BrowserAnimationsModule,
     NgxChartsModule,
-    HttpClientModule 
+    HttpClientModule,
   ],
   exports:[MainComponent],
-  providers: [ReportesService]
+  providers: [ReportesService, SidebarComponent]
 })
 export class ReportesModule { }
