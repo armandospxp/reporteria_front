@@ -14,10 +14,15 @@ import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFo
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-submit() {
-throw new Error('Method not implemented.');
+  sucursalesFiltradas: any;
+
+filtrar() {
+  this.sucursalesFiltradas = this.sucursales.filter(opcion => opcion.seleccionado);
+  console.log(this.sucursalesFiltradas);
 }
+
   form:FormGroup;
+  filtroSeleccionado:any = []
   
   sucursales!:Sucursales[];
 
@@ -34,7 +39,6 @@ throw new Error('Method not implemented.');
     this.sidebarService.obtenerSucursales().subscribe((resp:any)=>{
       console.log(resp);
       this.sucursales = resp;
-      this.addCheckboxes();
     });
   }
 
@@ -42,10 +46,4 @@ throw new Error('Method not implemented.');
     console.log(event);
  }
 
- private addCheckboxes() {
-  this.sucursales.map((o, i) => {
-    const control = new FormControl(i === 0); // if first item set to true, else false
-    (this.form.controls['suc'] as FormArray).push(control);
-  });
-}
 }

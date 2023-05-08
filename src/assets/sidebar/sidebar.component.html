@@ -25,16 +25,14 @@
         </div>
       </ul>
       </form> -->
-      <form [formGroup]="form" (ngSubmit)="submit()">
-        <label formArrayName="orders" *ngFor="let order of form.controls.suc.controls; let i = index">
-          <input type="checkbox" [formControlName]="i">
-          {{sucursales[i].name}}
-        </label>
-      
-        <div *ngIf="!form.valid">At least one order must be selected</div>
-        <br>
-        <button [disabled]="!form.valid">submit</button>
-      </form>
+        <div class="submenu-sidebar">
+        <div class="nav-item" *ngFor="let opcion of sucursales">
+          <label >
+            <input type="checkbox" [(ngModel)]="opcion.seleccionado" (change)="filtrar()">
+            {{ opcion.name }}
+          </label>
+        </div>
+      </div>
     </div>
   </li>
   <li class="nav-item nav-category">Ayuda</li>
