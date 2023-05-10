@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Servers } from 'src/app/config/api';
 import { Sucursales } from 'src/assets/sidebar/interfaces/sidebar';
 
@@ -9,6 +9,8 @@ import { Sucursales } from 'src/assets/sidebar/interfaces/sidebar';
 export class FiltrosService {
 
   private base_url = Servers.pruebas.baseUrl;
+  @Output()
+  datosFiltrados: EventEmitter<Sucursales[]> = new EventEmitter();
 
   constructor(
     private http: HttpClient
@@ -19,4 +21,9 @@ export class FiltrosService {
     console.log(url);
     return this.http.get<Sucursales>(url);
   }
+
+  emitDatosFiltro(data: Sucursales[]): void {
+    this.datosFiltrados.emit(data);
+  }
+
 }

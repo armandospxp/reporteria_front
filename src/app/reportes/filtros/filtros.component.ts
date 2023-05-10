@@ -10,17 +10,10 @@ import { FiltrosService } from './filtros.service';
 export class FiltrosComponent implements OnInit {
 
   sucursalesFiltradas!: Sucursales[];
-  @Output()
-  datosFiltrados: EventEmitter<Sucursales[]> = new EventEmitter();
 
 filtrar() {
   this.sucursalesFiltradas = this.sucursales.filter(opcion => opcion.seleccionado);
-  //console.log(this.sucursalesFiltradas);
-  this.emitDatosFiltro(this.sucursalesFiltradas)
-}
-
-private emitDatosFiltro(data: Sucursales[]): void {
-  this.datosFiltrados.emit(data);
+  this.filtrosService.emitDatosFiltro(this.sucursalesFiltradas);
 }
 
   filtroSeleccionado:any = []
