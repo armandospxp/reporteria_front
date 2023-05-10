@@ -12,6 +12,7 @@ import { ReportesService } from './reportes.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GraficoComparativoLineaComponent } from './grafico-comparativo-linea/grafico-comparativo-linea.component';
 import { SidebarComponent } from 'src/assets/sidebar/sidebar.component';
+import { FiltrosComponent } from './filtros/filtros.component';
 
 
 
@@ -23,7 +24,8 @@ import { SidebarComponent } from 'src/assets/sidebar/sidebar.component';
     GraficoPieComponent,
     GraficoLineasComponent,
     GraficoTreeComponent,
-    GraficoComparativoLineaComponent
+    GraficoComparativoLineaComponent,
+    FiltrosComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,7 @@ import { SidebarComponent } from 'src/assets/sidebar/sidebar.component';
     NgxChartsModule,
     HttpClientModule,
   ],
-  exports:[MainComponent],
-  providers: [ReportesService, SidebarComponent]
+  exports:[MainComponent, FiltrosComponent],
+  providers: [ReportesService]
 })
 export class ReportesModule { }

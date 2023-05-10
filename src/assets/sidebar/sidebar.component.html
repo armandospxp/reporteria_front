@@ -26,12 +26,13 @@
       </ul>
       </form> -->
         <div class="submenu-sidebar">
-        <div class="nav-item" *ngFor="let opcion of sucursales">
+        <!-- <div class="nav-item" *ngFor="let opcion of sucursales">
           <label >
             <input type="checkbox" [(ngModel)]="opcion.seleccionado" (change)="filtrar()">
             {{ opcion.name }}
           </label>
-        </div>
+        </div> -->
+        <app-filtros />
       </div>
     </div>
   </li>

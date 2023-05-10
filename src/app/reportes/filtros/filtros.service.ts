@@ -1,0 +1,22 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Servers } from 'src/app/config/api';
+import { Sucursales } from 'src/assets/sidebar/interfaces/sidebar';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class FiltrosService {
+
+  private base_url = Servers.pruebas.baseUrl;
+
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  obtenerSucursales(){
+    const url = this.base_url + '/obtener-sucursales';
+    console.log(url);
+    return this.http.get<Sucursales>(url);
+  }
+}
