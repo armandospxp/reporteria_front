@@ -1,7 +1,5 @@
 import { Component, Injectable } from '@angular/core';
-import { CommonModule, JsonPipe } from '@angular/common';
-import { NgbAlertModule, NgbDateStruct, NgbDatepickerI18n, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { NgbDateStruct, NgbDatepickerI18n } from '@ng-bootstrap/ng-bootstrap';
 
 const I18N_VALUES: {[index: string]:any} = {
 	es: {
@@ -38,18 +36,17 @@ export class CustomDatepickerI18n extends NgbDatepickerI18n {
 		return this.getMonthShortName(month);
 	}
 	getDayAriaLabel(date: NgbDateStruct): string {
-		return `${date.day}-${date.month}-${date.year}`;
+		return `${date.day}/${date.month}/${date.year}`;
 	}
 }
 
 @Component({
   selector: 'app-datepicker',
-  standalone: true,
-	imports: [NgbDatepickerModule, NgbAlertModule, FormsModule, JsonPipe],
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.scss'],
   providers: [I18n, { provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n }], // define custom NgbDatepickerI18n provider
 })
-export class DatepickerComponent  {
-  model: NgbDateStruct | undefined;
+export class DatepickerComponent {
+  fechaDesde: NgbDateStruct | undefined;
+  fechaHasta: NgbDateStruct | undefined;
 }

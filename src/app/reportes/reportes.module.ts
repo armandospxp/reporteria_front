@@ -11,8 +11,9 @@ import { GraficoTreeComponent } from './grafico-tree/grafico-tree.component';
 import { ReportesService } from './reportes.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GraficoComparativoLineaComponent } from './grafico-comparativo-linea/grafico-comparativo-linea.component';
-import { SidebarComponent } from 'src/assets/sidebar/sidebar.component';
 import { FiltrosComponent } from './filtros/filtros.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
+import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -25,7 +26,8 @@ import { FiltrosComponent } from './filtros/filtros.component';
     GraficoLineasComponent,
     GraficoTreeComponent,
     GraficoComparativoLineaComponent,
-    FiltrosComponent
+    FiltrosComponent,
+    DatepickerComponent
   ],
   imports: [
     CommonModule,
@@ -33,8 +35,9 @@ import { FiltrosComponent } from './filtros/filtros.component';
     BrowserAnimationsModule,
     NgxChartsModule,
     HttpClientModule,
+    NgbDatepickerModule
   ],
-  exports:[MainComponent, FiltrosComponent],
+  exports:[MainComponent, FiltrosComponent, DatepickerComponent],
   providers: [ReportesService]
 })
 export class ReportesModule { }
