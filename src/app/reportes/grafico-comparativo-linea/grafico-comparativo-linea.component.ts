@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ReportesService } from '../reportes.service';
+import { FiltrosService } from '../filtros/filtros.service';
+import { Sucursales } from 'src/assets/sidebar/interfaces/sidebar';
 
 @Component({
   selector: 'app-grafico-comparativo-linea',
@@ -25,8 +27,14 @@ export class GraficoComparativoLineaComponent {
 
   colorScheme = "vivid";
 
-  constructor(private reporteService:ReportesService) {
-    //Object.assign(this, { multi });
+  filtroSucursal: string[] = [];
+
+  constructor(private reporteService: ReportesService,
+    private filtrosService: FiltrosService) {
+    this.reporteService.obtenerComparativoSumaMontoOperaciones().subscribe((resp: any) => {
+      this.multi = resp;
+      Object.assign(this, this.multi);
+    });
   }
 
   onSelect(data: any): void {
@@ -41,11 +49,18 @@ export class GraficoComparativoLineaComponent {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
 
-  ngOnInit():void{
-    this.reporteService.obtenerComparativoSumaMontoOperaciones().subscribe((resp:any) =>{
-     this.multi = resp;
-     Object.assign(this, this.multi);
-   });
-   }
+  ngOnInit(): void {
+    this.filtrosService.datosFiltrados.subscribe((data: Sucursales[]) => {
+      this.filtroSucursal = [];
+      data.forEach((i: Sucursales) => {
+        this.filtroSucursal.push(i.name);
+      });
+      this.reporteService.obtenerComparativoSumaMontoOperaciones().subscribe((resp: any) => {
+        this.multi = resp.filter((valor: Sucursales) => this.filtroSucursal.includes(valor.name));
+        console.log(this.filtroSucursal);
+        Object.assign(this, this.multi);
+      });
+    })
+  }
 
 }

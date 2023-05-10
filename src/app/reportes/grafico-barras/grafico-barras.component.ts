@@ -55,18 +55,15 @@ export class GraficoBarrasComponent {
   ngOnInit():void{
     this.filtrosService.datosFiltrados.subscribe((data:Sucursales[])=>{
       this.filtroSucursal = [];
-      //console.log(data);
       data.forEach((i:Sucursales)=>{
-        //console.log(i.name);
         this.filtroSucursal.push(i.name);
       });
       console.log(this.filtroSucursal);
       this.reporteService.obtenerCantidadOperaciones().subscribe((resp:any) =>{
         this.single = resp.filter((valor: Sucursales)=>this.filtroSucursal.includes(valor.name));
-        //console.log(this.single);
         Object.assign(this, this.single);
       });
-    })
+    });
    
   }
 

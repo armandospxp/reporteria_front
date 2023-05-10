@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ReportesService } from '../reportes.service';
+import { FiltrosService } from '../filtros/filtros.service';
+import { Sucursales } from 'src/assets/sidebar/interfaces/sidebar';
 
 @Component({
   selector: 'app-grafico-lineas',
@@ -9,6 +11,8 @@ import { ReportesService } from '../reportes.service';
 export class GraficoLineasComponent {
   multi!: any;
   view: any[] = [700, 300];
+
+  filtroSucursal: string[] = [];
 
   // options
   legend: boolean = true;
@@ -25,10 +29,14 @@ export class GraficoLineasComponent {
 
   colorScheme = "vivid";
 
-  @Input() datosFiltrados:any;
+  @Input() datosFiltrados: any;
 
-  constructor(private reporteService:ReportesService) {
-    //Object.assign(this, { multi });
+  constructor(private reporteService: ReportesService,
+    private filtrosService: FiltrosService) {
+    this.reporteService.obtenerSumaMontoOperaciones().subscribe((resp: any) => {
+      this.multi = resp;
+      Object.assign(this, this.multi);
+    });
   }
 
   onSelect(data: any): void {
@@ -43,10 +51,16 @@ export class GraficoLineasComponent {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
 
-  ngOnInit():void{
-    this.reporteService.obtenerSumaMontoOperaciones().subscribe((resp:any) =>{
-     this.multi = resp;
-     Object.assign(this, this.multi);
-   });
-   }
+  ngOnInit(): void {
+    this.filtrosService.datosFiltrados.subscribe((data: Sucursales[]) => {
+      this.filtroSucursal = [];
+      data.forEach((i: Sucursales) => {
+        this.filtroSucursal.push(i.name);
+      });
+      this.reporteService.obtenerSumaMontoOperaciones().subscribe((resp: any) => {
+        this.multi = resp.filter((valor: Sucursales) => this.filtroSucursal.includes(valor.name));
+        Object.assign(this, this.multi);
+      });
+    })
+  }
 }
