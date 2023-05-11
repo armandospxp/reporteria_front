@@ -54,7 +54,7 @@ export class GraficoBarrasComponent {
   }
   ngOnInit():void{
     this.filtrosService.fechaFiltrada.subscribe((data:any)=>{
-      this.reporteService.obtenerCantidadOperaciones(data).subscribe((resp:any)=>{
+      this.reporteService.obtenerCantidadOperacionesPost(data).subscribe((resp:any)=>{
         console.log(resp);
       })
     });

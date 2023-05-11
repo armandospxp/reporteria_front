@@ -14,7 +14,13 @@ export class ReportesService {
     private http: HttpClient
   ) { }
   
-  obtenerCantidadOperaciones(data?:any){
+  obtenerCantidadOperaciones(){
+    const url = this.base_url + '/cantidad-operaciones';
+    console.log(url);
+    return this.http.get(url);
+  }
+  
+  obtenerCantidadOperacionesPost(data?:any){
     const url = this.base_url + '/cantidad-operaciones';
     console.log(url);
     let body='fechas='+data;
