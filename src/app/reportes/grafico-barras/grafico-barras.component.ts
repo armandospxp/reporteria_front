@@ -53,6 +53,11 @@ export class GraficoBarrasComponent {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
   ngOnInit():void{
+    this.filtrosService.fechaFiltrada.subscribe((data:any)=>{
+      this.reporteService.obtenerCantidadOperaciones(data).subscribe((resp:any)=>{
+        console.log(resp);
+      })
+    });
     this.filtrosService.datosFiltrados.subscribe((data:Sucursales[])=>{
       this.filtroSucursal = [];
       data.forEach((i:Sucursales)=>{

@@ -21,7 +21,7 @@ filtrar() {
   sucursales!:Sucursales[];
 
   constructor(
-    private filtrosService:FiltrosService,
+    private filtrosService:FiltrosService
   ){
   }
 

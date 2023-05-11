@@ -11,6 +11,7 @@ export class FiltrosService {
   private base_url = Servers.pruebas.baseUrl;
   @Output()
   datosFiltrados: EventEmitter<Sucursales[]> = new EventEmitter();
+  fechaFiltrada: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private http: HttpClient
@@ -24,6 +25,10 @@ export class FiltrosService {
 
   emitDatosFiltro(data: Sucursales[]): void {
     this.datosFiltrados.emit(data);
+  }
+
+  emitirDatosFecha(data:any){
+    this.fechaFiltrada.emit(data);
   }
 
 }
