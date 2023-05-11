@@ -44,6 +44,12 @@ export class GraficoPieComponent {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
   ngOnInit():void{
+    this.filtrosService.fechaFiltrada.subscribe((data:any)=>{
+      this.reporteService.obtenerCantidadOperacionesPost(data).subscribe((resp:any)=>{
+        this.single = resp;
+        Object.assign(this, this.single);
+      })
+    });
     this.filtrosService.datosFiltrados.subscribe((data:Sucursales[])=>{
       this.filtroSucursal = [];
       //console.log(data);

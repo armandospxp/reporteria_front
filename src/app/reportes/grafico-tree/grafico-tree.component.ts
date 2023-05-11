@@ -37,6 +37,12 @@ export class GraficoTreeComponent {
   }
 
   ngOnInit():void{
+    this.filtrosService.fechaFiltrada.subscribe((data:any)=>{
+      this.reporteService.obtenerCantidadOperacionesPost(data).subscribe((resp:any)=>{
+        this.single = resp;
+        Object.assign(this, this.single);
+      })
+    });
     this.filtrosService.datosFiltrados.subscribe((data:Sucursales[])=>{
       this.filtroSucursal = [];
       data.forEach((i:Sucursales)=>{

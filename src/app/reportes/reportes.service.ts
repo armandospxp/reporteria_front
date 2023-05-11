@@ -23,7 +23,7 @@ export class ReportesService {
   obtenerCantidadOperacionesPost(data?:any){
     const url = this.base_url + '/cantidad-operaciones';
     console.log(url);
-    let body='fechas='+data;
+    let body=data;
     return this.http.post(url,body);
   }
 
