@@ -33,6 +33,13 @@ export class ReportesService {
     return this.http.get(url);
   }
   
+  obtenerSumaMontoOperacionesPost(data?:any){
+    const url = this.base_url + '/suma-operaciones';
+    console.log(url);
+    let body = data;
+    return this.http.post(url, data);
+  }
+  
   obtenerComparativoSumaMontoOperaciones(){
     const url = this.base_url + '/comparativo-suma-operaciones';
     console.log(url);

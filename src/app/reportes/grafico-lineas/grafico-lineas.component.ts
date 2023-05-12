@@ -52,6 +52,12 @@ export class GraficoLineasComponent {
   }
 
   ngOnInit(): void {
+    this.filtrosService.fechaFiltrada.subscribe((data:any)=>{
+      this.reporteService.obtenerSumaMontoOperacionesPost(data).subscribe((resp:any)=>{
+        this.multi = resp;
+        Object.assign(this, this.multi);
+      })
+    });
     this.filtrosService.datosFiltrados.subscribe((data: Sucursales[]) => {
       this.filtroSucursal = [];
       data.forEach((i: Sucursales) => {
