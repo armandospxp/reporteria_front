@@ -22,7 +22,7 @@ export class GraficoTreeComponent {
 
   constructor(private reporteService: ReportesService,
     private filtrosService: FiltrosService) {
-      this.reporteService.obtenerCantidadOperaciones().subscribe((resp:any) =>{
+      this.reporteService.obtenerSumaOperacionesSucursal().subscribe((resp:any) =>{
         this.single = resp;
        Object.assign(this, this.single);
      });
@@ -38,7 +38,7 @@ export class GraficoTreeComponent {
 
   ngOnInit():void{
     this.filtrosService.fechaFiltrada.subscribe((data:any)=>{
-      this.reporteService.obtenerCantidadOperacionesPost(data).subscribe((resp:any)=>{
+      this.reporteService.obtenerSumaOperacionesSucursalPost(data).subscribe((resp:any)=>{
         this.single = resp;
         Object.assign(this, this.single);
       })
@@ -49,7 +49,7 @@ export class GraficoTreeComponent {
         this.filtroSucursal.push(i.name);
       });
       console.log(this.filtroSucursal);
-      this.reporteService.obtenerCantidadOperaciones().subscribe((resp:any) =>{
+      this.reporteService.obtenerSumaOperacionesSucursal().subscribe((resp:any) =>{
         this.single = resp.filter((valor: Sucursales)=>this.filtroSucursal.includes(valor.name));
         Object.assign(this, this.single);
       });
