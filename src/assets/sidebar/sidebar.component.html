@@ -13,25 +13,8 @@
       <span class="menu-title">Filtro por Sucursal</span>
       <i class="menu-arrow"></i>
     </a>
-    <div class="collapse" id="form-elements">
-      <!-- <form [formGroup]="form" (click)="enviarFiltro()"></form>
-      <ul class="nav flex-column sub-menu">
-        <div class="form-check" *ngFor="let suc of sucursales">
-          <input [formControlName]="i" class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-          <label formArrayName="suc" *ngFor="let order of form.controls['suc'].controls; let i = index"
-            class="form-check-label" for="flexCheckDefault">
-            {{ suc.name }}
-          </label>
-        </div>
-      </ul>
-      </form> -->
-        <div class="submenu-sidebar">
-        <!-- <div class="nav-item" *ngFor="let opcion of sucursales">
-          <label >
-            <input type="checkbox" [(ngModel)]="opcion.seleccionado" (change)="filtrar()">
-            {{ opcion.name }}
-          </label>
-        </div> -->
+    <div class="collapse show" id="form-elements">
+      <div class="submenu-sidebar">
         <app-filtros />
       </div>
     </div>
@@ -44,5 +27,3 @@
     </a>
   </li>
 </ul>
-<!-- 
-formArrayName="orders" *ngFor="let order of ordersFormArray.controls; let i = index" -->
