@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Spinkit } from 'ng-http-loader';
 
 @Component({
   selector: 'app-main',
@@ -7,8 +8,9 @@ import { Component, Input } from '@angular/core';
 })
 export class MainComponent {
 
-  @Input() datosFilt!:any;
+  @Input() datosFilt!: any;
+  public spinkit = Spinkit;
 
-  ngOnInit(){
+  ngOnInit() {
   }
 }

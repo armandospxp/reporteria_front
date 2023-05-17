@@ -14,6 +14,7 @@ import { GraficoComparativoLineaComponent } from './grafico-comparativo-linea/gr
 import { FiltrosComponent } from './filtros/filtros.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 
 
@@ -35,7 +36,8 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     NgxChartsModule,
     HttpClientModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
+    NgHttpLoaderModule.forRoot()
   ],
   exports:[MainComponent, FiltrosComponent, DatepickerComponent],
   providers: [ReportesService]
