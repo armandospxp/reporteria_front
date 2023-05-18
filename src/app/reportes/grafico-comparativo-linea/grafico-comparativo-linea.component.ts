@@ -31,7 +31,7 @@ export class GraficoComparativoLineaComponent {
 
   constructor(private reporteService: ReportesService,
     private filtrosService: FiltrosService) {
-    this.reporteService.obtenerComparativoSumaMontoOperaciones().subscribe((resp: any) => {
+    this.reporteService.obtenerComparativoMes().subscribe((resp: any) => {
       this.multi = resp;
       Object.assign(this, this.multi);
     });
@@ -55,7 +55,7 @@ export class GraficoComparativoLineaComponent {
       data.forEach((i: Sucursales) => {
         this.filtroSucursal.push(i.name);
       });
-      this.reporteService.obtenerComparativoSumaMontoOperaciones().subscribe((resp: any) => {
+      this.reporteService.obtenerComparativoMes().subscribe((resp: any) => {
         this.multi = resp.filter((valor: Sucursales) => this.filtroSucursal.includes(valor.name));
         console.log(this.filtroSucursal);
         Object.assign(this, this.multi);

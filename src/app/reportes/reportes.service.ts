@@ -59,4 +59,10 @@ export class ReportesService {
     return this.http.post(url, data);
   }
 
+  obtenerComparativoMes(){
+    const url = this.base_url + '/obtener-versus-mensual';
+    console.log(url);
+    return this.http.get(url);
+  }
+
 }
