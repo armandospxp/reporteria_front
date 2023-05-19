@@ -64,5 +64,11 @@ export class ReportesService {
     console.log(url);
     return this.http.get(url);
   }
+  
+  obtenerMetasFranquicias(){
+    const url = this.base_url + '/obtener-metas-franquicias';
+    console.log(url);
+    return this.http.get(url);
+  }
 
 }

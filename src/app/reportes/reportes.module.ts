@@ -15,6 +15,7 @@ import { FiltrosComponent } from './filtros/filtros.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { GraficoGaugeComponent } from './grafico-gauge/grafico-gauge.component';
 
 
 
@@ -28,7 +29,8 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     GraficoTreeComponent,
     GraficoComparativoLineaComponent,
     FiltrosComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    GraficoGaugeComponent
   ],
   imports: [
     CommonModule,

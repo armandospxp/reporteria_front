@@ -21,7 +21,7 @@ export class GraficoComparativoLineaComponent {
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Mes';
+  xAxisLabel: string = 'Días';
   yAxisLabel: string = 'Monto Consolidado';
   timeline: boolean = true;
 
@@ -50,17 +50,7 @@ export class GraficoComparativoLineaComponent {
   }
 
   ngOnInit(): void {
-    this.filtrosService.datosFiltrados.subscribe((data: Sucursales[]) => {
-      this.filtroSucursal = [];
-      data.forEach((i: Sucursales) => {
-        this.filtroSucursal.push(i.name);
-      });
-      this.reporteService.obtenerComparativoMes().subscribe((resp: any) => {
-        this.multi = resp.filter((valor: Sucursales) => this.filtroSucursal.includes(valor.name));
-        console.log(this.filtroSucursal);
-        Object.assign(this, this.multi);
-      });
-    })
+    
   }
 
 }
