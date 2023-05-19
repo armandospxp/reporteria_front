@@ -26,6 +26,7 @@ export class GraficoGaugeComponent {
   xAxisLabel: string = 'Cantidad';
   legend: boolean = true;
   legendTitle: string = 'Rerefencias';
+  showText: boolean = false;
 
   colorScheme = "vivid"
   // colorScheme = {
