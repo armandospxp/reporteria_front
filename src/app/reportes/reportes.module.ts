@@ -16,7 +16,6 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { GraficoGaugeComponent } from './grafico-gauge/grafico-gauge.component';
-import { GraficoBarrasMontosComponent } from './grafico-barras-montos/grafico-barras-montos.component';
 
 
 
@@ -32,7 +31,6 @@ import { GraficoBarrasMontosComponent } from './grafico-barras-montos/grafico-ba
     FiltrosComponent,
     DatepickerComponent,
     GraficoGaugeComponent,
-    GraficoBarrasMontosComponent
   ],
   imports: [
     CommonModule,

@@ -12,6 +12,17 @@ export class GraficoComparativoLineaComponent {
   multi!: any;
   view: any[] = [700, 300];
 
+  customColors = [
+    { 
+      name: 'verde',
+      value: '#3BE007'
+    },
+    { 
+      name: 'azul',
+      value: '#E03807'
+    }
+];
+
   // options
   legend: boolean = true;
   legendTitle: string = 'Rerefencias';
@@ -25,7 +36,7 @@ export class GraficoComparativoLineaComponent {
   yAxisLabel: string = 'Monto Desembolsado';
   timeline: boolean = true;
 
-  colorScheme = "vivid";
+  colorScheme = this.customColors;
 
   filtroSucursal: string[] = [];
 

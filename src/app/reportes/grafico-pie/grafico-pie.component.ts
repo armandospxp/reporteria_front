@@ -17,6 +17,7 @@ export class GraficoPieComponent {
   showLegend: boolean = true;
   showLabels: boolean = true;
   isDoughnut: boolean = true;
+  designatedTotal: any = '';
 
   colorScheme = "vivid";
 
@@ -27,8 +28,12 @@ export class GraficoPieComponent {
     private filtrosService:FiltrosService
   ) {
     this.reporteService.obtenerMetasFranquicias().subscribe((resp:any)=>{
-      this.single = resp;
-      Object.assign(this, this.single);
+      this.designatedTotal = resp[0].value;
+      console.log(resp);
+      this.reporteService.obtenerSituacionFranquicias().subscribe((resp:any)=>{
+        this.single = resp;
+        Object.assign(this, this.single);
+      });
     });
   }
 

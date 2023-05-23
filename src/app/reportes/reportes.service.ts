@@ -70,5 +70,11 @@ export class ReportesService {
     console.log(url);
     return this.http.get(url);
   }
+  
+  obtenerSituacionFranquicias(){
+    const url = this.base_url + '/obtener-situacion-franquicias';
+    console.log(url);
+    return this.http.get(url);
+  }
 
 }
