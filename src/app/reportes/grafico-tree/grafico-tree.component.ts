@@ -15,6 +15,13 @@ export class GraficoTreeComponent {
   // options
   gradient: boolean = false;
   animations: boolean = true;
+  showXAxis: boolean = true;
+  showYAxis: boolean = true;
+  showLegend: boolean = false;
+  showXAxisLabel: boolean = true;
+  yAxisLabel: string = 'Sucursales';
+  showYAxisLabel: boolean = true;
+  xAxisLabel: string = 'Monto Desembolsado';
 
   colorScheme = "vivid";
 

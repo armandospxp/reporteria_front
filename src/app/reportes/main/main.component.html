@@ -1,11 +1,24 @@
-<ng-http-loader
-  [backdrop]="false"
-    [backgroundColor]="'#02B396'"
-    [debounceDelay]="100"
-    [extraDuration]="300"
-    [spinner]="spinkit.skCubeGrid"
-    [minDuration]="300"></ng-http-loader>
+<ng-http-loader [backdrop]="false" [backgroundColor]="'#02B396'" [debounceDelay]="100" [extraDuration]="300"
+    [spinner]="spinkit.skCubeGrid" [minDuration]="300"></ng-http-loader>
 <div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class=""></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink">
+                            <div class=""></div>
+                        </div>
+                    </div>
+                    <h4 class="card-title">Meta vs Actual</h4>
+                    <app-grafico-pie />
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-6 grid-margin stretch-card">
             <div class="card">
@@ -34,44 +47,7 @@
                             <div class=""></div>
                         </div>
                     </div>
-                    <h4 class="card-title">Monto desembolsado</h4>
-                    <!-- <app-grafico-lineas /> -->
-                    <app-grafico-comparativo-linea />
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chartjs-size-monitor">
-                        <div class="chartjs-size-monitor-expand">
-                            <div class=""></div>
-                        </div>
-                        <div class="chartjs-size-monitor-shrink">
-                            <div class=""></div>
-                        </div>
-                    </div>
-                    <h4 class="card-title">Porcentaje operaciones</h4>
-                    <div class="card-body">
-                        <app-grafico-pie />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chartjs-size-monitor">
-                        <div class="chartjs-size-monitor-expand">
-                            <div class=""></div>
-                        </div>
-                        <div class="chartjs-size-monitor-shrink">
-                            <div class=""></div>
-                        </div>
-                    </div>
-                    <h4 class="card-title">Árbol de participación operaciones</h4>
+                    <h4 class="card-title">Desembolso por sucursal</h4>
                     <app-grafico-tree />
                 </div>
             </div>
@@ -89,8 +65,8 @@
                             <div class=""></div>
                         </div>
                     </div>
-                    <h4 class="card-title">Comparativa monto operaciones por sucursal</h4>
-                    <app-grafico-lineas /> 
+                    <h4 class="card-title">Año anterior vs año actual</h4>
+                    <app-grafico-comparativo-linea />
                 </div>
             </div>
         </div>
@@ -107,8 +83,8 @@
                             <div class=""></div>
                         </div>
                     </div>
-                    <h4 class="card-title">Comparativa Meta vs Situación Actual</h4>
-                    <app-grafico-gauge /> 
+                    <h4 class="card-title">Comparativa monto operaciones por sucursal</h4>
+                    <app-grafico-lineas />
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@ import { Sucursales } from 'src/assets/sidebar/interfaces/sidebar';
 })
 export class GraficoPieComponent {
   single!: any;
-  view: [number, number] = [700, 400];
+  // view: [number, number] = [700, 400];
 
   // options
   gradient: boolean = true;
@@ -26,9 +26,9 @@ export class GraficoPieComponent {
     private reporteService:ReportesService,
     private filtrosService:FiltrosService
   ) {
-    this.reporteService.obtenerCantidadOperaciones().subscribe((resp:any)=>{
-      this.single = resp
-      Object.assign(this.single);
+    this.reporteService.obtenerMetasFranquicias().subscribe((resp:any)=>{
+      this.single = resp;
+      Object.assign(this, this.single);
     });
   }
 
@@ -44,25 +44,5 @@ export class GraficoPieComponent {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
   ngOnInit():void{
-    this.filtrosService.fechaFiltrada.subscribe((data:any)=>{
-      this.reporteService.obtenerCantidadOperacionesPost(data).subscribe((resp:any)=>{
-        this.single = resp;
-        Object.assign(this, this.single);
-      })
-    });
-    this.filtrosService.datosFiltrados.subscribe((data:Sucursales[])=>{
-      this.filtroSucursal = [];
-      //console.log(data);
-      data.forEach((i:Sucursales)=>{
-        //console.log(i.name);
-        this.filtroSucursal.push(i.name);
-      });
-      console.log(this.filtroSucursal);
-      this.reporteService.obtenerCantidadOperaciones().subscribe((resp:any) =>{
-        this.single = resp.filter((valor: Sucursales)=>this.filtroSucursal.includes(valor.name));
-        //console.log(this.single);
-        Object.assign(this, this.single);
-      });
-    });
   }
 }

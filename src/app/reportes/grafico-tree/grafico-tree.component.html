@@ -1,8 +1,14 @@
-<ngx-charts-tree-map
+<ngx-charts-bar-horizontal
   [scheme]="colorScheme"
   [results]="single"
   [gradient]="gradient"
   [animations]="animations"
-  [labelFormatting]="labelFormatting"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
   (select)="onSelect($event)">
-</ngx-charts-tree-map>
+</ngx-charts-bar-horizontal>

@@ -21,8 +21,8 @@ export class GraficoComparativoLineaComponent {
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Días';
-  yAxisLabel: string = 'Monto Consolidado';
+  xAxisLabel: string = 'Meses';
+  yAxisLabel: string = 'Monto Desembolsado';
   timeline: boolean = true;
 
   colorScheme = "vivid";
