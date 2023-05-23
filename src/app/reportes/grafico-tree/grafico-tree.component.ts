@@ -22,6 +22,7 @@ export class GraficoTreeComponent {
   yAxisLabel: string = 'Sucursales';
   showYAxisLabel: boolean = true;
   xAxisLabel: string = 'Monto Desembolsado';
+  showDataLabel: boolean = true;
 
   colorScheme = "vivid";
 

@@ -1,14 +1,5 @@
-<ngx-charts-bar-horizontal
-  [scheme]="colorScheme"
-  [results]="single"
-  [gradient]="gradient"
-  [animations]="animations"
-  [xAxis]="showXAxis"
-  [yAxis]="showYAxis"
-  [legend]="showLegend"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel"
-  (select)="onSelect($event)">
+<ngx-charts-bar-horizontal [showDataLabel]="showDataLabel" [scheme]="colorScheme" [results]="single"
+  [gradient]="gradient" [animations]="animations" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
 </ngx-charts-bar-horizontal>

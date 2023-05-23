@@ -25,6 +25,7 @@ export class GraficoBarrasComponent {
   yAxisLabel: string = 'Sucursales';
   showYAxisLabel: boolean = true;
   xAxisLabel: string = 'Cantidad';
+  showDataLabel: boolean = true;
 
   colorScheme = "vivid"
   // colorScheme = {
