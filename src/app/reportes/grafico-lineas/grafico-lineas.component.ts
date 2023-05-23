@@ -24,7 +24,7 @@ export class GraficoLineasComponent {
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
   xAxisLabel: string = 'Mes';
-  yAxisLabel: string = 'Monto Consolidado';
+  yAxisLabel: string = 'Monto Desembolsado';
   timeline: boolean = true;
 
   colorScheme = "vivid";
@@ -63,6 +63,7 @@ export class GraficoLineasComponent {
       data.forEach((i: Sucursales) => {
         this.filtroSucursal.push(i.name);
       });
+      console.log(this.filtroSucursal)
       this.reporteService.obtenerSumaMontoOperaciones().subscribe((resp: any) => {
         this.multi = resp.filter((valor: Sucursales) => this.filtroSucursal.includes(valor.name));
         Object.assign(this, this.multi);
