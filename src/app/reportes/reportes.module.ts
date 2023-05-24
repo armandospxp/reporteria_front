@@ -16,6 +16,7 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { GraficoGaugeComponent } from './grafico-gauge/grafico-gauge.component';
+import { GraficoVariacionBancaTipoComponent } from './grafico-variacion-banca-tipo/grafico-variacion-banca-tipo.component';
 
 
 
@@ -31,6 +32,7 @@ import { GraficoGaugeComponent } from './grafico-gauge/grafico-gauge.component';
     FiltrosComponent,
     DatepickerComponent,
     GraficoGaugeComponent,
+    GraficoVariacionBancaTipoComponent
   ],
   imports: [
     CommonModule,
