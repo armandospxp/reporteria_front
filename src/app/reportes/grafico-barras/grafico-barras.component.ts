@@ -13,7 +13,7 @@ export class GraficoBarrasComponent {
   single!: any;
   view: any[] = [700, 400];
 
-  filtroSucursal:string[]=[];
+  filtroSucursal: string[] = [];
 
 
   // options
@@ -32,11 +32,13 @@ export class GraficoBarrasComponent {
   //   domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   // };
 
+  fechaFiltrada: any;
+
   constructor(
-    private reporteService:ReportesService,
+    private reporteService: ReportesService,
     private filtrosService: FiltrosService
   ) {
-    this.reporteService.obtenerCantidadOperaciones().subscribe((resp:any)=>{
+    this.reporteService.obtenerCantidadOperaciones().subscribe((resp: any) => {
       this.single = resp;
       Object.assign(this, this.single);
     });
@@ -53,25 +55,33 @@ export class GraficoBarrasComponent {
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
-  ngOnInit():void{
-    this.filtrosService.fechaFiltrada.subscribe((data:any)=>{
-      this.reporteService.obtenerCantidadOperacionesPost(data).subscribe((resp:any)=>{
+  ngOnInit(): void {
+    this.filtrosService.fechaFiltrada.subscribe((data: any) => {
+      this.fechaFiltrada = data;
+      this.reporteService.obtenerCantidadOperacionesPost(data).subscribe((resp: any) => {
         this.single = resp;
         Object.assign(this, this.single);
       })
     });
-    this.filtrosService.datosFiltrados.subscribe((data:Sucursales[])=>{
+    this.filtrosService.datosFiltrados.subscribe((data: Sucursales[]) => {
       this.filtroSucursal = [];
-      data.forEach((i:Sucursales)=>{
+      data.forEach((i: Sucursales) => {
         this.filtroSucursal.push(i.name);
       });
       console.log(this.filtroSucursal);
-      this.reporteService.obtenerCantidadOperaciones().subscribe((resp:any) =>{
-        this.single = resp.filter((valor: Sucursales)=>this.filtroSucursal.includes(valor.name));
-        Object.assign(this, this.single);
-      });
+      if (this.fechaFiltrada) {
+        this.reporteService.obtenerCantidadOperacionesPost(this.fechaFiltrada).subscribe((resp: any) => {
+          this.single = resp.filter((valor: Sucursales) => this.filtroSucursal.includes(valor.name));
+        });
+      } else {
+        this.reporteService.obtenerCantidadOperaciones().subscribe((resp: any) => {
+          this.single = resp.filter((valor: Sucursales) => this.filtroSucursal.includes(valor.name));
+          Object.assign(this, this.single);
+        });
+      }
+
     });
-   
+
   }
 
 }

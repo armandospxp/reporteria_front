@@ -9,7 +9,7 @@ import { Sucursales } from 'src/assets/sidebar/interfaces/sidebar';
   styleUrls: ['./grafico-tree.component.scss']
 })
 export class GraficoTreeComponent {
-  single!:any;
+  single!: any;
   view: any[] = [700, 400];
 
   // options
@@ -26,14 +26,15 @@ export class GraficoTreeComponent {
 
   colorScheme = "vivid";
 
-  filtroSucursal:string[]=[];
+  filtroSucursal: string[] = [];
+  fechaFiltrada: any;
 
   constructor(private reporteService: ReportesService,
     private filtrosService: FiltrosService) {
-      this.reporteService.obtenerSumaOperacionesSucursal().subscribe((resp:any) =>{
-        this.single = resp;
-       Object.assign(this, this.single);
-     });
+    this.reporteService.obtenerSumaOperacionesSucursal().subscribe((resp: any) => {
+      this.single = resp;
+      Object.assign(this, this.single);
+    });
   }
 
   onSelect(event: any) {
@@ -43,24 +44,34 @@ export class GraficoTreeComponent {
   labelFormatting(c: { label: any; }) {
     return `${(c.label)}`;
   }
+//obtenerSumaOperacionesSucursalPost
+ngOnInit(): void {
+  this.filtrosService.fechaFiltrada.subscribe((data: any) => {
+    this.fechaFiltrada = data;
+    this.reporteService.obtenerSumaOperacionesSucursalPost(data).subscribe((resp: any) => {
+      this.single = resp;
+      Object.assign(this, this.single);
+    })
+  });
+  this.filtrosService.datosFiltrados.subscribe((data: Sucursales[]) => {
+    this.filtroSucursal = [];
+    data.forEach((i: Sucursales) => {
+      this.filtroSucursal.push(i.name);
+    });
+    console.log(this.filtroSucursal);
+    if (this.fechaFiltrada) {
+      this.reporteService.obtenerSumaOperacionesSucursalPost(this.fechaFiltrada).subscribe((resp: any) => {
+        this.single = resp.filter((valor: Sucursales) => this.filtroSucursal.includes(valor.name));
+      });
+    } else {
+      this.reporteService.obtenerSumaOperacionesSucursal().subscribe((resp: any) => {
+        this.single = resp.filter((valor: Sucursales) => this.filtroSucursal.includes(valor.name));
+        Object.assign(this, this.single);
+      });
+    }
 
-  ngOnInit():void{
-    this.filtrosService.fechaFiltrada.subscribe((data:any)=>{
-      this.reporteService.obtenerSumaOperacionesSucursalPost(data).subscribe((resp:any)=>{
-        this.single = resp;
-        Object.assign(this, this.single);
-      })
-    });
-    this.filtrosService.datosFiltrados.subscribe((data:Sucursales[])=>{
-      this.filtroSucursal = [];
-      data.forEach((i:Sucursales)=>{
-        this.filtroSucursal.push(i.name);
-      });
-      console.log(this.filtroSucursal);
-      this.reporteService.obtenerSumaOperacionesSucursal().subscribe((resp:any) =>{
-        this.single = resp.filter((valor: Sucursales)=>this.filtroSucursal.includes(valor.name));
-        Object.assign(this, this.single);
-      });
-    });
-   }
+  });
+
+}
+
 }
