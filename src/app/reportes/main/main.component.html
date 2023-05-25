@@ -87,4 +87,60 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-4 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class=""></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink">
+                            <div class=""></div>
+                        </div>
+                    </div>
+                    <h4 class="card-title">Variación Interanual por Banca y por Tipo</h4>
+                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" />
+                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.micro.valor" [label]="labels.micro.nombre"/>
+                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.debito.valor" [label]="labels.debito.nombre"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class=""></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink">
+                            <div class=""></div>
+                        </div>
+                    </div>
+                    <h4 class="card-title">Variación Interanual por Banca y por Tipo</h4>
+                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" [anterior]="1"/>
+                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.micro.valor" [label]="labels.micro.nombre"  [anterior]="1"/>
+                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.debito.valor" [label]="labels.debito.nombre"  [anterior]="1"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class=""></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink">
+                            <div class=""></div>
+                        </div>
+                    </div>
+                    <h4 class="card-title">Variación Interanual por Banca y por Tipo</h4>
+                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" [anterior]="2"/>
+                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.micro.valor" [label]="labels.micro.nombre"  [anterior]="2"/>
+                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.debito.valor" [label]="labels.debito.nombre"  [anterior]="2"/>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

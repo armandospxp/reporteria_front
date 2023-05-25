@@ -76,15 +76,9 @@ export class ReportesService {
     console.log(url);
     return this.http.get(url);
   }
-  
-  obtenerVariacionBancaTipo(){
-    const url = this.base_url + '/obtener-situacion-franquicias';
-    console.log(url);
-    return this.http.get(url);
-  }
-  
-  obtenerVariacionBancaTipoPost(data?:any){
-    const url = this.base_url + '/obtener-situacion-franquicias';
+
+  obtenerVariacionBancaTipo(data?:any){
+    const url = this.base_url + '/obtener-variacion-banca-tipo';
     console.log(url);
     return this.http.post(url, data);
   }
