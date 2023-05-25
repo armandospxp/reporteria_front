@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ReportesService } from '../reportes.service';
+import { FiltrosService } from '../filtros/filtros.service';
 
 @Component({
   selector: 'app-grafico-variacion-banca-tipo',
@@ -10,7 +12,11 @@ export class GraficoVariacionBancaTipoComponent implements OnInit {
   single!: any;
   view: any[] = [700, 400];
 
-  filtroSucursal:string[]=[];
+  filtroSucursal: string[] = [];
+
+  @Input() anio: number | undefined;
+  @Input() banca: number | undefined;
+
 
 
   // options
@@ -26,7 +32,13 @@ export class GraficoVariacionBancaTipoComponent implements OnInit {
 
   colorScheme = "vivid"
 
-  constructor() { }
+  constructor(private reporteService:ReportesService,
+    private filtrosService: FiltrosService) { 
+      this.reporteService.obtenerVariacionBancaTipo().subscribe((resp:any)=>{
+        this.single = resp;
+        Object.assign(this, this.single);
+      })
+    }
 
   ngOnInit() {
   }
