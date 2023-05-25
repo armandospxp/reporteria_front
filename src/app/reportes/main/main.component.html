@@ -99,10 +99,10 @@
                             <div class=""></div>
                         </div>
                     </div>
-                    <h4 class="card-title">Variación Interanual por Banca y por Tipo</h4>
-                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" />
-                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.micro.valor" [label]="labels.micro.nombre"/>
-                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.debito.valor" [label]="labels.debito.nombre"/>
+                    <h4 class="card-title">Variación Interanual por Banca y por Tipo {{ anio_actual }}</h4>
+                    <app-grafico-variacion-banca-tipo [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" />
+                    <app-grafico-variacion-banca-tipo [banca]="labels.micro.valor" [label]="labels.micro.nombre"/>
+                    <app-grafico-variacion-banca-tipo [banca]="labels.debito.valor" [label]="labels.debito.nombre" [debito]="1"/>
                 </div>
             </div>
         </div>
@@ -117,10 +117,10 @@
                             <div class=""></div>
                         </div>
                     </div>
-                    <h4 class="card-title">Variación Interanual por Banca y por Tipo</h4>
-                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" [anterior]="1"/>
-                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.micro.valor" [label]="labels.micro.nombre"  [anterior]="1"/>
-                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.debito.valor" [label]="labels.debito.nombre"  [anterior]="1"/>
+                    <h4 class="card-title">Variación Interanual por Banca y por Tipo {{ anio_actual -1}}</h4>
+                    <app-grafico-variacion-banca-tipo [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" [anterior]="1"/>
+                    <app-grafico-variacion-banca-tipo [banca]="labels.micro.valor" [label]="labels.micro.nombre"  [anterior]="1"/>
+                    <app-grafico-variacion-banca-tipo [banca]="labels.debito.valor" [label]="labels.debito.nombre"  [anterior]="1" [debito]="2"/>
                 </div>
             </div>
         </div>
@@ -135,10 +135,10 @@
                             <div class=""></div>
                         </div>
                     </div>
-                    <h4 class="card-title">Variación Interanual por Banca y por Tipo</h4>
-                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" [anterior]="2"/>
-                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.micro.valor" [label]="labels.micro.nombre"  [anterior]="2"/>
-                    <app-grafico-variacion-banca-tipo [anterior]="" [banca]="labels.debito.valor" [label]="labels.debito.nombre"  [anterior]="2"/>
+                    <h4 class="card-title">Variación Interanual por Banca y por Tipo  {{ anio_actual -2 }}</h4>
+                    <app-grafico-variacion-banca-tipo [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" [anterior]="2"/>
+                    <app-grafico-variacion-banca-tipo [banca]="labels.micro.valor" [label]="labels.micro.nombre"  [anterior]="2"/>
+                    <app-grafico-variacion-banca-tipo [banca]="labels.debito.valor" [label]="labels.debito.nombre"  [anterior]="2" [debito]="2"/>
                 </div>
             </div>
         </div>

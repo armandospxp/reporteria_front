@@ -11,6 +11,8 @@ export class MainComponent {
 
   @Input() datosFilt!: any;
   public spinkit = Spinkit;
+  public date = new Date()
+  public anio_actual = this.date.getFullYear();
 
   labels: Banca = { micro: { nombre: "Micro", valor: 130 }, consumo: {
     nombre: "Consumo", valor: 240 }, debito: { nombre: "Débito", valor: 250 } }

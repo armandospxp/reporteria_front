@@ -18,9 +18,9 @@ export class GraficoTreeComponent {
   showXAxis: boolean = true;
   showYAxis: boolean = true;
   showLegend: boolean = false;
-  showXAxisLabel: boolean = true;
+  showXAxisLabel: boolean = false;
   yAxisLabel: string = 'Sucursales';
-  showYAxisLabel: boolean = true;
+  showYAxisLabel: boolean = false;
   xAxisLabel: string = 'Monto Desembolsado';
   showDataLabel: boolean = true;
 

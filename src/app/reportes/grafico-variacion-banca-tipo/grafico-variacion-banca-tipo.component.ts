@@ -11,13 +11,14 @@ export class GraficoVariacionBancaTipoComponent implements OnInit {
 
   single!: any;
   data:any;
-  view: any[] = [700, 400];
+  view: [number, number] = [400, 150];
 
   filtroSucursal: string[] = [];
 
   @Input() anterior: any = null;
   @Input() banca!: number;
   @Input() label!: string;
+  @Input() debito!: number;
 
 
 
@@ -38,7 +39,7 @@ export class GraficoVariacionBancaTipoComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.label)
-    this.data = {"tipo_banca":this.banca, "anterior":this.anterior} 
+    this.data = {"tipo_banca":this.banca, "anterior":this.anterior, "debito":this.debito} 
     this.yAxisLabel = this.label;
     this.reporteService.obtenerVariacionBancaTipo(this.data).subscribe((resp:any)=>{
       this.single = resp;
