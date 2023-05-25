@@ -26,6 +26,11 @@ filtrar() {
   }
 
   ngOnInit():void{
+    this.filtrosService.fechaFiltrada.subscribe(()=>{
+      this.filtrosService.obtenerSucursales().subscribe((resp:any)=>{
+        this.sucursales = resp;
+      });
+    })
     this.filtrosService.obtenerSucursales().subscribe((resp:any)=>{
       // console.log(resp);
       this.sucursales = resp;
