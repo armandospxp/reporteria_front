@@ -32,7 +32,6 @@ filtrar() {
       });
     })
     this.filtrosService.obtenerSucursales().subscribe((resp:any)=>{
-      // console.log(resp);
       this.sucursales = resp;
     });
   }

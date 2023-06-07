@@ -17,6 +17,8 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { GraficoGaugeComponent } from './grafico-gauge/grafico-gauge.component';
 import { GraficoVariacionBancaTipoComponent } from './grafico-variacion-banca-tipo/grafico-variacion-banca-tipo.component';
+import { LoginComponent } from './login/login.component';
+import { ReportesRoutingModule } from './reportes-routing.module';
 
 
 
@@ -32,16 +34,18 @@ import { GraficoVariacionBancaTipoComponent } from './grafico-variacion-banca-ti
     FiltrosComponent,
     DatepickerComponent,
     GraficoGaugeComponent,
-    GraficoVariacionBancaTipoComponent
+    GraficoVariacionBancaTipoComponent,
+    LoginComponent
   ],
   imports: [
+    ReportesRoutingModule,
     CommonModule,
     FormsModule,
     BrowserAnimationsModule,
     NgxChartsModule,
     HttpClientModule,
     NgbDatepickerModule,
-    NgHttpLoaderModule.forRoot()
+    NgHttpLoaderModule.forRoot(),
   ],
   exports:[MainComponent, FiltrosComponent, DatepickerComponent],
   providers: [ReportesService]

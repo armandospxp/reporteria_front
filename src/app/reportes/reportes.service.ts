@@ -83,4 +83,10 @@ export class ReportesService {
     return this.http.post(url, data);
   }
 
+  login(data:any){
+    const url = this.base_url + '/login';
+    console.log(url);
+    return this.http.post(url, data);
+  }
+
 }
