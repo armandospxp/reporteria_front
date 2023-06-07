@@ -5,13 +5,13 @@ import { NgModule } from "@angular/core";
 
 const routes: Routes = [
     {
-      path: 'login',
-      component: LoginComponent,
-      pathMatch: 'full'
-    },
-    {
-        path:'',
+        path:'home',
         component:MainComponent,
+        pathMatch: 'full'
+    }
+    ,{
+        path:'login',
+        component:LoginComponent,
         pathMatch: 'full'
     }
   ];
