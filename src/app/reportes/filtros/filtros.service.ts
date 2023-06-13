@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Servers } from 'src/app/config/api';
-import { Sucursales } from 'src/assets/sidebar/interfaces/sidebar';
+import { Sucursales } from 'src/app/reportes/interfaces/sucursales';
 
 @Injectable({
   providedIn: 'root'

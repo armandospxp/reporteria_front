@@ -1,210 +1,154 @@
 <ng-http-loader [backdrop]="false" [backgroundColor]="'#02B396'" [debounceDelay]="100" [extraDuration]="300"
     [spinner]="spinkit.skCubeGrid" [minDuration]="300"></ng-http-loader>
-<div class="content-wrapper">
-    <!-- <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chartjs-size-monitor">
-                        <div class="chartjs-size-monitor-expand">
-                            <div class=""></div>
-                        </div>
-                        <div class="chartjs-size-monitor-shrink">
-                            <div class=""></div>
+<app-header>
+</app-header>
+<div class="container-fluid page-body-wrapper pt-0">
+    <app-sidebar class="sidebar sidebar-offcanvas">
+    </app-sidebar>
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-lg-4 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <h4 class="card-title">Meta vs Actual</h4>
+                            <app-grafico-pie />
                         </div>
                     </div>
-                    <h4 class="card-title">Meta vs Actual</h4>
-                    <app-grafico-pie />
+                </div>
+                <div class="col-lg-4 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <h4 class="card-title">Cantidad de operaciones</h4>
+                            <app-grafico-barras />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <h4 class="card-title">Desembolso por sucursal</h4>
+                            <app-grafico-tree />
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div> -->
-    <div class="row">
-        <div class="col-lg-4 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chartjs-size-monitor">
-                        <div class="chartjs-size-monitor-expand">
-                            <div class=""></div>
-                        </div>
-                        <div class="chartjs-size-monitor-shrink">
-                            <div class=""></div>
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <h4 class="card-title">Año anterior vs año actual</h4>
+                            <app-grafico-comparativo-linea />
                         </div>
                     </div>
-                    <h4 class="card-title">Meta vs Actual</h4>
-                    <app-grafico-pie />
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chartjs-size-monitor">
-                        <div class="chartjs-size-monitor-expand">
-                            <div class=""></div>
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title text-center"> Variación Interanual por Banca y Tipo</h4>
                         </div>
-                        <div class="chartjs-size-monitor-shrink">
-                            <div class=""></div>
+                        <div class="row">
+                            <div class="col-lg-4 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="chartjs-size-monitor">
+                                            <div class="chartjs-size-monitor-expand">
+                                                <div class=""></div>
+                                            </div>
+                                            <div class="chartjs-size-monitor-shrink">
+                                                <div class=""></div>
+                                            </div>
+                                        </div>
+                                        <h4 class="card-title text-center"> {{ anio_actual }}</h4>
+                                        <app-grafico-variacion-banca-tipo [banca]="labels.consumo.valor"
+                                            [label]="labels.consumo.nombre" />
+                                        <app-grafico-variacion-banca-tipo [banca]="labels.micro.valor"
+                                            [label]="labels.micro.nombre" />
+                                        <app-grafico-variacion-banca-tipo [banca]="labels.debito.valor"
+                                            [label]="labels.debito.nombre" [debito]="1" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="chartjs-size-monitor">
+                                            <div class="chartjs-size-monitor-expand">
+                                                <div class=""></div>
+                                            </div>
+                                            <div class="chartjs-size-monitor-shrink">
+                                                <div class=""></div>
+                                            </div>
+                                        </div>
+                                        <h4 class="card-title text-center"> {{ anio_actual -1}}</h4>
+                                        <app-grafico-variacion-banca-tipo [banca]="labels.consumo.valor"
+                                            [label]="labels.consumo.nombre" [anterior]="1" />
+                                        <app-grafico-variacion-banca-tipo [banca]="labels.micro.valor"
+                                            [label]="labels.micro.nombre" [anterior]="1" />
+                                        <app-grafico-variacion-banca-tipo [banca]="labels.debito.valor"
+                                            [label]="labels.debito.nombre" [anterior]="1" [debito]="2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="chartjs-size-monitor">
+                                            <div class="chartjs-size-monitor-expand">
+                                                <div class=""></div>
+                                            </div>
+                                            <div class="chartjs-size-monitor-shrink">
+                                                <div class=""></div>
+                                            </div>
+                                        </div>
+                                        <h4 class="card-title text-center"> {{ anio_actual -2 }}</h4>
+                                        <app-grafico-variacion-banca-tipo [banca]="labels.consumo.valor"
+                                            [label]="labels.consumo.nombre" [anterior]="2" />
+                                        <app-grafico-variacion-banca-tipo [banca]="labels.micro.valor"
+                                            [label]="labels.micro.nombre" [anterior]="2" />
+                                        <app-grafico-variacion-banca-tipo [banca]="labels.debito.valor"
+                                            [label]="labels.debito.nombre" [anterior]="2" [debito]="2" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <h4 class="card-title">Cantidad de operaciones</h4>
-                    <app-grafico-barras />
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chartjs-size-monitor">
-                        <div class="chartjs-size-monitor-expand">
-                            <div class=""></div>
-                        </div>
-                        <div class="chartjs-size-monitor-shrink">
-                            <div class=""></div>
-                        </div>
-                    </div>
-                    <h4 class="card-title">Desembolso por sucursal</h4>
-                    <app-grafico-tree />
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chartjs-size-monitor">
-                        <div class="chartjs-size-monitor-expand">
-                            <div class=""></div>
-                        </div>
-                        <div class="chartjs-size-monitor-shrink">
-                            <div class=""></div>
-                        </div>
-                    </div>
-                    <h4 class="card-title">Año anterior vs año actual</h4>
-                    <app-grafico-comparativo-linea />
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title text-center"> Variación Interanual por Banca y Tipo</h4>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="chartjs-size-monitor">
-                                    <div class="chartjs-size-monitor-expand">
-                                        <div class=""></div>
-                                    </div>
-                                    <div class="chartjs-size-monitor-shrink">
-                                        <div class=""></div>
-                                    </div>
-                                </div>
-                                <h4 class="card-title text-center"> {{ anio_actual }}</h4>
-                                <app-grafico-variacion-banca-tipo [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" />
-                                <app-grafico-variacion-banca-tipo [banca]="labels.micro.valor" [label]="labels.micro.nombre"/>
-                                <app-grafico-variacion-banca-tipo [banca]="labels.debito.valor" [label]="labels.debito.nombre" [debito]="1"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="chartjs-size-monitor">
-                                    <div class="chartjs-size-monitor-expand">
-                                        <div class=""></div>
-                                    </div>
-                                    <div class="chartjs-size-monitor-shrink">
-                                        <div class=""></div>
-                                    </div>
-                                </div>
-                                <h4 class="card-title text-center"> {{ anio_actual -1}}</h4>
-                                <app-grafico-variacion-banca-tipo [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" [anterior]="1"/>
-                                <app-grafico-variacion-banca-tipo [banca]="labels.micro.valor" [label]="labels.micro.nombre"  [anterior]="1"/>
-                                <app-grafico-variacion-banca-tipo [banca]="labels.debito.valor" [label]="labels.debito.nombre"  [anterior]="1" [debito]="2"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="chartjs-size-monitor">
-                                    <div class="chartjs-size-monitor-expand">
-                                        <div class=""></div>
-                                    </div>
-                                    <div class="chartjs-size-monitor-shrink">
-                                        <div class=""></div>
-                                    </div>
-                                </div>
-                                <h4 class="card-title text-center"> {{ anio_actual -2 }}</h4>
-                                <app-grafico-variacion-banca-tipo [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" [anterior]="2"/>
-                                <app-grafico-variacion-banca-tipo [banca]="labels.micro.valor" [label]="labels.micro.nombre"  [anterior]="2"/>
-                                <app-grafico-variacion-banca-tipo [banca]="labels.debito.valor" [label]="labels.debito.nombre"  [anterior]="2" [debito]="2"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </div>
-    <!-- <div class="row">
-        <div class="col-lg-4 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chartjs-size-monitor">
-                        <div class="chartjs-size-monitor-expand">
-                            <div class=""></div>
-                        </div>
-                        <div class="chartjs-size-monitor-shrink">
-                            <div class=""></div>
-                        </div>
-                    </div>
-                    <h4 class="card-title"> {{ anio_actual }}</h4>
-                    <app-grafico-variacion-banca-tipo [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" />
-                    <app-grafico-variacion-banca-tipo [banca]="labels.micro.valor" [label]="labels.micro.nombre"/>
-                    <app-grafico-variacion-banca-tipo [banca]="labels.debito.valor" [label]="labels.debito.nombre" [debito]="1"/>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chartjs-size-monitor">
-                        <div class="chartjs-size-monitor-expand">
-                            <div class=""></div>
-                        </div>
-                        <div class="chartjs-size-monitor-shrink">
-                            <div class=""></div>
-                        </div>
-                    </div>
-                    <h4 class="card-title"> {{ anio_actual -1}}</h4>
-                    <app-grafico-variacion-banca-tipo [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" [anterior]="1"/>
-                    <app-grafico-variacion-banca-tipo [banca]="labels.micro.valor" [label]="labels.micro.nombre"  [anterior]="1"/>
-                    <app-grafico-variacion-banca-tipo [banca]="labels.debito.valor" [label]="labels.debito.nombre"  [anterior]="1" [debito]="2"/>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chartjs-size-monitor">
-                        <div class="chartjs-size-monitor-expand">
-                            <div class=""></div>
-                        </div>
-                        <div class="chartjs-size-monitor-shrink">
-                            <div class=""></div>
-                        </div>
-                    </div>
-                    <h4 class="card-title"> {{ anio_actual -2 }}</h4>
-                    <app-grafico-variacion-banca-tipo [banca]="labels.consumo.valor" [label]="labels.consumo.nombre" [anterior]="2"/>
-                    <app-grafico-variacion-banca-tipo [banca]="labels.micro.valor" [label]="labels.micro.nombre"  [anterior]="2"/>
-                    <app-grafico-variacion-banca-tipo [banca]="labels.debito.valor" [label]="labels.debito.nombre"  [anterior]="2" [debito]="2"/>
-                </div>
-            </div>
-        </div>
-    </div> -->
-</div>
+    <app-footer />

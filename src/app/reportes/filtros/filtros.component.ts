@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Sucursales } from 'src/assets/sidebar/interfaces/sidebar';
+import { Sucursales } from 'src/app/reportes/interfaces/sucursales';
 import { FiltrosService } from './filtros.service';
 
 @Component({

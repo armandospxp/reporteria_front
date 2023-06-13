@@ -5,8 +5,12 @@ import { AuthGuard } from './config/util/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path:'reportes',
+    path:'',
     loadChildren: () => import('./reportes/reportes.module').then(x => x.ReportesModule),
+  },
+  {
+    path:'login',
+    component:LoginComponent
   }
 ];
 

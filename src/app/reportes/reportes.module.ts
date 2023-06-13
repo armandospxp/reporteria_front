@@ -19,35 +19,39 @@ import { GraficoGaugeComponent } from './grafico-gauge/grafico-gauge.component';
 import { GraficoVariacionBancaTipoComponent } from './grafico-variacion-banca-tipo/grafico-variacion-banca-tipo.component';
 import { LoginComponent } from './login/login.component';
 import { ReportesRoutingModule } from './reportes-routing.module';
+import { FooterComponent } from "../../assets/footer/footer.component";
+import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
 
 @NgModule({
-  declarations: [
-    MainComponent,
-    GraficoBarrasComponent,
-    GraficoPieComponent,
-    GraficoLineasComponent,
-    GraficoTreeComponent,
-    GraficoComparativoLineaComponent,
-    FiltrosComponent,
-    DatepickerComponent,
-    GraficoGaugeComponent,
-    GraficoVariacionBancaTipoComponent,
-    LoginComponent
-  ],
-  imports: [
-    ReportesRoutingModule,
-    CommonModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    NgxChartsModule,
-    HttpClientModule,
-    NgbDatepickerModule,
-    NgHttpLoaderModule.forRoot(),
-  ],
-  exports:[MainComponent, FiltrosComponent, DatepickerComponent],
-  providers: [ReportesService]
+    declarations: [
+        MainComponent,
+        GraficoBarrasComponent,
+        GraficoPieComponent,
+        GraficoLineasComponent,
+        GraficoTreeComponent,
+        GraficoComparativoLineaComponent,
+        FiltrosComponent,
+        DatepickerComponent,
+        GraficoGaugeComponent,
+        GraficoVariacionBancaTipoComponent,
+        LoginComponent,
+        HeaderComponent,
+        SidebarComponent
+    ],
+    exports: [],
+    providers: [ReportesService],
+    imports: [
+        ReportesRoutingModule,
+        FormsModule,
+        NgxChartsModule,
+        HttpClientModule,
+        NgbDatepickerModule,
+        NgHttpLoaderModule.forRoot(),
+        FooterComponent
+    ]
 })
 export class ReportesModule { }

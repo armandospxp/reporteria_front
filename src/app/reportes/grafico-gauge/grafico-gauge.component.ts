@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Sucursales } from 'src/assets/sidebar/interfaces/sidebar';
 import { ReportesService } from '../reportes.service';
 import { FiltrosService } from '../filtros/filtros.service';
 

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Sucursales } from 'src/assets/sidebar/interfaces/sidebar';
+import { Sucursales } from 'src/app/reportes/interfaces/sucursales';
 
 @Component({
   selector: 'app-root',

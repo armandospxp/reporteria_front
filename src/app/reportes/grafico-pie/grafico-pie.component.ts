@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ReportesService } from '../reportes.service';
 import { FiltrosService } from '../filtros/filtros.service';
-import { Sucursales } from 'src/assets/sidebar/interfaces/sidebar';
 
 @Component({
   selector: 'app-grafico-pie',
