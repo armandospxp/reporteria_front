@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReportesModule } from './reportes/reportes.module';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     AppRoutingModule,
     FooterComponent,
     ReportesModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
   providers: [ToastrService],

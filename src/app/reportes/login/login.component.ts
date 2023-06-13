@@ -21,12 +21,22 @@ export class LoginComponent {
   ) {
   }
 
-  isFormValid(): boolean {
-    if (this.user.user.length === 0 && this.user.password.length === 0) {
+  login() {
+    console.log(this.user);
+    const validar = this.isFormValid();
+    if (validar) {
+      this.obtenerTokenOauth(this.user);
+    } else {
       this.toastr.error('Debe completar todos los campos del formulario');
-      return false;
     }
-    return true;
+  }
+
+  isFormValid(): boolean {
+    if (this.user.user === '' || this.user.password === '') {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   loginOauth() {
@@ -36,9 +46,9 @@ export class LoginComponent {
   obtenerTokenOauth(user: any) {
     this.reporteService
       .login(user)
-      .subscribe((response:any) => {
-        debugger;
+      .subscribe((response: any) => {
         if (response.token) {
+          localStorage.clear();
           localStorage.setItem('currentUser', JSON.stringify(response));
           this.router.navigate(['/']).then(
             (nav) => {
@@ -49,14 +59,12 @@ export class LoginComponent {
             }
           );
         } else {
-          this.toastr.error(response.error);
+          this.toastr.error(response.detail);
         }
 
       }, (error: any) => {
         console.log(error);
-        this.toastr.error(error.error.error_description);
+        this.toastr.error(error.error.detail);
       });
   }
-
-
 }

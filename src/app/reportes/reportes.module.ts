@@ -9,7 +9,7 @@ import { GraficoPieComponent } from './grafico-pie/grafico-pie.component';
 import { GraficoLineasComponent } from './grafico-lineas/grafico-lineas.component';
 import { GraficoTreeComponent } from './grafico-tree/grafico-tree.component';
 import { ReportesService } from './reportes.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GraficoComparativoLineaComponent } from './grafico-comparativo-linea/grafico-comparativo-linea.component';
 import { FiltrosComponent } from './filtros/filtros.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
@@ -22,6 +22,7 @@ import { ReportesRoutingModule } from './reportes-routing.module';
 import { FooterComponent } from "../../assets/footer/footer.component";
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { TokenInterceptor } from '../config/util/interceptors/auth.interceptor';
 
 
 
@@ -43,7 +44,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
         SidebarComponent
     ],
     exports: [],
-    providers: [ReportesService],
+    providers: [ReportesService, {
+        provide: HTTP_INTERCEPTORS,
+        useClass: TokenInterceptor,
+        multi: true
+      }],
     imports: [
         ReportesRoutingModule,
         FormsModule,
