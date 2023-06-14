@@ -1,6 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { NgbDateParserFormatter, NgbDateStruct, NgbDatepickerI18n } from '@ng-bootstrap/ng-bootstrap';
 import { FiltrosService } from '../filtros/filtros.service';
+import { ToastrService } from 'ngx-toastr';
 
 const I18N_VALUES: { [index: string]: any } = {
 	es: {
@@ -20,7 +21,7 @@ export class I18n {
 
 @Injectable()
 export class CustomDatepickerI18n extends NgbDatepickerI18n {
-	constructor(private _i18n: I18n) {
+	constructor(private _i18n: I18n, toastr:ToastrService) {
 		super();
 	}
 
@@ -83,7 +84,7 @@ export function padNumber(value: number) {
 })
 export class DatepickerComponent {
 
-	constructor(private filtrosService: FiltrosService) {
+	constructor(private filtrosService: FiltrosService, private toastr:ToastrService) {
 		this.fechas = { fechaDesde: '', fechaHasta: '' };
 	}
 
@@ -100,7 +101,7 @@ export class DatepickerComponent {
 			this.fechas!.fechaHasta = ('0' + this.fechaHasta.day).slice(-2) + '/' + ('0' + this.fechaHasta.month).slice(-2) + '/' + this.fechaHasta.year;
 			this.filtrosService.emitirDatosFecha(this.fechas);
 		} else {
-			console.log('Ingrese una fecha válida');
+			this.toastr.error('Debe completar todos los campos del fecha');
 		}
 	}
 
