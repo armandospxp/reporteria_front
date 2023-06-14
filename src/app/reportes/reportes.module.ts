@@ -23,6 +23,7 @@ import { FooterComponent } from "../../assets/footer/footer.component";
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TokenInterceptor } from '../config/util/interceptors/auth.interceptor';
+import { NgMultiavatarModule } from 'ng-multiavatar';
 
 
 
@@ -56,7 +57,8 @@ import { TokenInterceptor } from '../config/util/interceptors/auth.interceptor';
         HttpClientModule,
         NgbDatepickerModule,
         NgHttpLoaderModule.forRoot(),
-        FooterComponent
+        FooterComponent,
+        NgMultiavatarModule
     ]
 })
 export class ReportesModule { }
