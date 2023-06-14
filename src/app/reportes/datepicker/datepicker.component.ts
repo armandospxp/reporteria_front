@@ -80,14 +80,14 @@ export function padNumber(value: number) {
 	selector: 'app-datepicker',
 	templateUrl: './datepicker.component.html',
 	styleUrls: ['./datepicker.component.scss'],
-	providers: [I18n, { provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n }], // define custom NgbDatepickerI18n provider
+	providers: [I18n, { provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n },
+		{ provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter },], // define custom NgbDatepickerI18n provider
 })
 export class DatepickerComponent {
 
 	constructor(private filtrosService: FiltrosService, private toastr:ToastrService) {
 		this.fechas = { fechaDesde: '', fechaHasta: '' };
 		const fecha = new Date();
-		console.log(fecha.getUTCDay());
 		this.fechaDesde = new NgbDate(fecha.getFullYear(), fecha.getMonth()+1, 1);
 		this.fechaHasta = new NgbDate(fecha.getFullYear(), fecha.getMonth()+1, fecha.getDate())
 	}
