@@ -1,5 +1,5 @@
 import { Component, Injectable } from '@angular/core';
-import { NgbDateParserFormatter, NgbDateStruct, NgbDatepickerI18n } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDate, NgbDateParserFormatter, NgbDateStruct, NgbDateStructAdapter, NgbDatepickerI18n } from '@ng-bootstrap/ng-bootstrap';
 import { FiltrosService } from '../filtros/filtros.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -86,6 +86,10 @@ export class DatepickerComponent {
 
 	constructor(private filtrosService: FiltrosService, private toastr:ToastrService) {
 		this.fechas = { fechaDesde: '', fechaHasta: '' };
+		const fecha = new Date();
+		console.log(fecha.getUTCDay());
+		this.fechaDesde = new NgbDate(fecha.getFullYear(), fecha.getMonth()+1, 1);
+		this.fechaHasta = new NgbDate(fecha.getFullYear(), fecha.getMonth()+1, fecha.getDate())
 	}
 
 	fechas: {
