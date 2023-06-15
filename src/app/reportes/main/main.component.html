@@ -70,7 +70,25 @@
                                 </div>
                             </div>
                             <h4 class="card-title">Año anterior vs año actual</h4>
-                            <app-grafico-comparativo-linea />
+                            <app-grafico-comparativo-linea [tipoGrafico] = "this.opciones[0]" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <h4 class="card-title">Año anterior vs año actual</h4>
+                            <app-grafico-comparativo-linea [tipoGrafico] = "this.opciones[1]" />
                         </div>
                     </div>
                 </div>

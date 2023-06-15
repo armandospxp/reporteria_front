@@ -9,6 +9,8 @@ import { Banca } from './interfaces/bancas';
 })
 export class MainComponent {
 
+  opciones = ['comparativo-mes', 'comparativo-dia']
+
   @Input() datosFilt!: any;
   public spinkit = Spinkit;
   public date = new Date()

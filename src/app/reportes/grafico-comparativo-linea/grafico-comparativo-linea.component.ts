@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ReportesService } from '../reportes.service';
 import { FiltrosService } from '../filtros/filtros.service';
 
@@ -9,18 +9,19 @@ import { FiltrosService } from '../filtros/filtros.service';
 })
 export class GraficoComparativoLineaComponent {
   multi!: any;
+  @Input() tipoGrafico: any;
   view: any[] = [700, 300];
 
   customColors = [
-    { 
+    {
       name: 'verde',
       value: '#3BE007'
     },
-    { 
+    {
       name: 'azul',
       value: '#E03807'
     }
-];
+  ];
 
   // options
   legend: boolean = true;
@@ -31,7 +32,7 @@ export class GraficoComparativoLineaComponent {
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Meses';
+  xAxisLabel: string = '';
   yAxisLabel: string = 'Monto Desembolsado';
   timeline: boolean = true;
 
@@ -41,10 +42,6 @@ export class GraficoComparativoLineaComponent {
 
   constructor(private reporteService: ReportesService,
     private filtrosService: FiltrosService) {
-    this.reporteService.obtenerComparativoMes().subscribe((resp: any) => {
-      this.multi = resp;
-      Object.assign(this, this.multi);
-    });
   }
 
   onSelect(data: any): void {
@@ -60,7 +57,19 @@ export class GraficoComparativoLineaComponent {
   }
 
   ngOnInit(): void {
-    
+    if (this.tipoGrafico == 'comparativo-mes') {
+      this.reporteService.obtenerComparativoMes().subscribe((resp: any) => {
+        this.xAxisLabel = 'Meses';
+        this.multi = resp;
+        Object.assign(this, this.multi);
+      });
+    } else if (this.tipoGrafico == 'comparativo-dia') {
+      this.reporteService.obtenerComparativoDia().subscribe((resp: any) => {
+        this.xAxisLabel = 'Días';
+        this.multi = resp;
+        Object.assign(this, this.multi);
+      })
+    }
   }
 
 }

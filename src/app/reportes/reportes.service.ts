@@ -65,6 +65,12 @@ export class ReportesService {
     return this.http.get(url);
   }
   
+  obtenerComparativoDia(){
+    const url = this.base_url + '/obtener-versus-dia';
+    console.log(url);
+    return this.http.get(url);
+  }
+  
   obtenerMetasFranquicias(){
     const url = this.base_url + '/obtener-metas-franquicias';
     console.log(url);
