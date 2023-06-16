@@ -9,7 +9,7 @@ import { Banca } from './interfaces/bancas';
 })
 export class MainComponent {
 
-  opciones = ['comparativo-mes', 'comparativo-dia']
+  opciones = ['comparativo-mes', 'comparativo-dia', 'comparativo-cantidad-dia']
 
   @Input() datosFilt!: any;
   public spinkit = Spinkit;

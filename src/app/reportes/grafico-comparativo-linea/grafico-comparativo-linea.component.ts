@@ -33,7 +33,7 @@ export class GraficoComparativoLineaComponent {
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
   xAxisLabel: string = '';
-  yAxisLabel: string = 'Monto Desembolsado';
+  yAxisLabel: string = '';
   timeline: boolean = true;
 
   colorScheme = this.customColors;
@@ -60,12 +60,21 @@ export class GraficoComparativoLineaComponent {
     if (this.tipoGrafico == 'comparativo-mes') {
       this.reporteService.obtenerComparativoMes().subscribe((resp: any) => {
         this.xAxisLabel = 'Meses';
+        this.yAxisLabel = 'Monto Desembolsado';
         this.multi = resp;
         Object.assign(this, this.multi);
       });
     } else if (this.tipoGrafico == 'comparativo-dia') {
       this.reporteService.obtenerComparativoDia().subscribe((resp: any) => {
         this.xAxisLabel = 'Días';
+        this.yAxisLabel = 'Monto Desembolsado';
+        this.multi = resp;
+        Object.assign(this, this.multi);
+      })
+    } else if (this.tipoGrafico == 'comparativo-cantidad-dia') {
+      this.reporteService.obtenerComparativoCantidadDia().subscribe((resp: any) => {
+        this.xAxisLabel = 'Días';
+        this.yAxisLabel = 'Cantidad de Desembolsos';
         this.multi = resp;
         Object.assign(this, this.multi);
       })

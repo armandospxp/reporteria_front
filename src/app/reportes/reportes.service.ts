@@ -71,6 +71,12 @@ export class ReportesService {
     return this.http.get(url);
   }
   
+  obtenerComparativoCantidadDia(){
+    const url = this.base_url + '/obtener-versus-cantidad-dia';
+    console.log(url);
+    return this.http.get(url);
+  }
+  
   obtenerMetasFranquicias(){
     const url = this.base_url + '/obtener-metas-franquicias';
     console.log(url);
