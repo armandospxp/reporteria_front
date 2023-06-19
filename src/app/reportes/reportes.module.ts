@@ -24,6 +24,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TokenInterceptor } from '../config/util/interceptors/auth.interceptor';
 import { NgMultiavatarModule } from 'ng-multiavatar';
+import { ThousandSeparatorPipe } from '../config/pipes/thousand.pipe';
 
 
 
@@ -42,7 +43,8 @@ import { NgMultiavatarModule } from 'ng-multiavatar';
         GraficoVariacionBancaTipoComponent,
         LoginComponent,
         HeaderComponent,
-        SidebarComponent
+        SidebarComponent,
+        ThousandSeparatorPipe
     ],
     exports: [],
     providers: [ReportesService, {
