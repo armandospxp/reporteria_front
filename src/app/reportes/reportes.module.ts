@@ -25,6 +25,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { TokenInterceptor } from '../config/util/interceptors/auth.interceptor';
 import { NgMultiavatarModule } from 'ng-multiavatar';
 import { ThousandSeparatorPipe } from '../config/pipes/thousand.pipe';
+import { FiltrosSupervisoresComponent } from './filtros-supervisores/filtros-supervisores.component';
 
 
 
@@ -44,7 +45,8 @@ import { ThousandSeparatorPipe } from '../config/pipes/thousand.pipe';
         LoginComponent,
         HeaderComponent,
         SidebarComponent,
-        ThousandSeparatorPipe
+        ThousandSeparatorPipe,
+        FiltrosSupervisoresComponent
     ],
     exports: [],
     providers: [ReportesService, {

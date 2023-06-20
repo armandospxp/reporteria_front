@@ -31,4 +31,10 @@ export class FiltrosService {
     this.fechaFiltrada.emit(data);
   }
 
+  obtenerSupervisores(){
+    const url = this.base_url + '/obtener-supervisores';
+    console.log(url);
+    return this.http.get(url);
+  }
+
 }

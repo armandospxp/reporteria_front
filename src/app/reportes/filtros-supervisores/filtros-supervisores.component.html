@@ -1,0 +1,6 @@
+<div class="nav-item" *ngFor="let opcion of supervisores">
+    <label >
+      <input type="checkbox" [(ngModel)]="opcion.seleccionado" (change)="filtrar()">
+      {{ opcion.name }}
+    </label>
+  </div>
