@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ReportesService } from '../reportes.service';
 import { FiltrosService } from '../filtros/filtros.service';
 import { Sucursales } from 'src/app/reportes/interfaces/sucursales';
+import { Supervisores } from '../interfaces/supervisores';
 
 @Component({
   selector: 'app-grafico-tree',
@@ -28,6 +29,9 @@ export class GraficoTreeComponent {
 
   filtroSucursal: string[] = [];
   fechaFiltrada: any;
+
+  idSupervisoresFiltrados: number[] = [];
+  newData: any;
 
   constructor(private reporteService: ReportesService,
     private filtrosService: FiltrosService) {
@@ -71,6 +75,23 @@ export class GraficoTreeComponent {
       }
 
     });
+    this.filtrosService.supervisorFiltrado.subscribe((data: Supervisores[]) => {
+      // this.reporteService.obtenerCantidadOperacionesPost(data).subscribe((resp:any)=>{
+      //   Object.assign(this, resp);
+      // })
+      this.idSupervisoresFiltrados = [];
+      data.forEach((i: Supervisores) => {
+        this.idSupervisoresFiltrados.push(i.id);
+      });
+      this.newData = { "supervisores": this.idSupervisoresFiltrados };
+      console.log(this.newData);
+      this.reporteService.obtenerSumaOperacionesSucursalPost(this.newData).subscribe((resp: any) => {
+        this.single = resp;
+        Object.assign(this, this.single);
+        console.log(resp);
+      })
+    });
+
 
   }
 

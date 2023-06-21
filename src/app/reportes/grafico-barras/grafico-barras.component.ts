@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ReportesService } from '../reportes.service';
 import { Sucursales } from 'src/app/reportes/interfaces/sucursales';
 import { FiltrosService } from '../filtros/filtros.service';
+import { Supervisores } from '../interfaces/supervisores';
 
 
 @Component({
@@ -14,6 +15,8 @@ export class GraficoBarrasComponent {
   view: any[] = [700, 400];
 
   filtroSucursal: string[] = [];
+
+  idSupervisoresFiltrados: number[] = [];
 
 
   // options
@@ -33,6 +36,8 @@ export class GraficoBarrasComponent {
   // };
 
   fechaFiltrada: any;
+
+  newData: any;
 
   constructor(
     private reporteService: ReportesService,
@@ -80,6 +85,22 @@ export class GraficoBarrasComponent {
         });
       }
 
+    });
+    this.filtrosService.supervisorFiltrado.subscribe((data: Supervisores[]) => {
+      // this.reporteService.obtenerCantidadOperacionesPost(data).subscribe((resp:any)=>{
+      //   Object.assign(this, resp);
+      // })
+      this.idSupervisoresFiltrados = [];
+      data.forEach((i: Supervisores) => {
+        this.idSupervisoresFiltrados.push(i.id);
+      });
+      this.newData = { "supervisores": this.idSupervisoresFiltrados };
+      console.log(this.newData);
+      this.reporteService.obtenerCantidadOperacionesPost(this.newData).subscribe((resp: any) => {
+        this.single = resp;
+        Object.assign(this, this.single);
+        console.log(resp);
+      })
     });
 
   }

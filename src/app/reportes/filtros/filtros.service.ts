@@ -12,6 +12,7 @@ export class FiltrosService {
   @Output()
   datosFiltrados: EventEmitter<Sucursales[]> = new EventEmitter();
   fechaFiltrada: EventEmitter<any> = new EventEmitter();
+  supervisorFiltrado: EventEmitter<Sucursales[]> = new EventEmitter();
 
   constructor(
     private http: HttpClient
@@ -25,6 +26,10 @@ export class FiltrosService {
 
   emitDatosFiltro(data: Sucursales[]): void {
     this.datosFiltrados.emit(data);
+  }
+
+  emitirDatosFiltroSupervisor(data:Sucursales[]):void{
+    this.supervisorFiltrado.emit(data);
   }
 
   emitirDatosFecha(data:any){

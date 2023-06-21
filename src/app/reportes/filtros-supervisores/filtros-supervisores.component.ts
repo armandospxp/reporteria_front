@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FiltrosService } from '../filtros/filtros.service';
 import { Sucursales } from '../interfaces/sucursales';
+import { Supervisores } from '../interfaces/supervisores';
 
 @Component({
   selector: 'app-filtros-supervisores',
@@ -12,12 +13,14 @@ export class FiltrosSupervisoresComponent {
 
   filtrar() {
     this.supervisoresFiltrados = this.supervisores.filter(opcion => opcion.seleccionado);
-    this.filtrosService.emitDatosFiltro(this.supervisoresFiltrados);
+    this.filtrosService.emitirDatosFiltroSupervisor(this.supervisoresFiltrados);
   }
   
-    filtroSeleccionado:any = []
+    filtroSeleccionado:any = [];
+
+    idSupervisoresFiltrados!:number[];
     
-    supervisores!:Sucursales[];
+    supervisores!:Supervisores[];
   
     constructor(
       private filtrosService:FiltrosService
@@ -32,7 +35,10 @@ export class FiltrosSupervisoresComponent {
       // })
       this.filtrosService.obtenerSupervisores().subscribe((resp:any)=>{
         this.supervisores = resp;
-        console.log(resp);
+        resp.forEach((i:Supervisores)=>{
+          this.idSupervisoresFiltrados.push(i.id);
+        });
+        console.log(this.supervisoresFiltrados);
       });
     }
   
